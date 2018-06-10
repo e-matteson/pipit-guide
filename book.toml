@@ -1,0 +1,5 @@
+[book]
+authors = ["e-matteson"]
+multilingual = false
+src = "src"
+title = "Pipit User Guide"

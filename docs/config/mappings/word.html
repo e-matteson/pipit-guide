@@ -1,0 +1,269 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Word - Pipit User Guide</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <base href="../../">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="_FontAwesome/css/font-awesome.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+
+    </head>
+    <body class="light">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="getting_started/README.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="getting_started/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li><a href="getting_started/running.html"><strong aria-hidden="true">1.2.</strong> Running</a></li><li><a href="getting_started/tutor.html"><strong aria-hidden="true">1.3.</strong> Typing Tutor</a></li></ol></li><li><a href="config/README.html"><strong aria-hidden="true">2.</strong> Configuration</a></li><li><ol class="section"><li><a href="config/terminology.html"><strong aria-hidden="true">2.1.</strong> Terminology</a></li><li><a href="config/mappings/README.html"><strong aria-hidden="true">2.2.</strong> Mappings</a></li><li><ol class="section"><li><a href="config/mappings/plain.html"><strong aria-hidden="true">2.2.1.</strong> Plain</a></li><li><a href="config/mappings/word.html" class="active"><strong aria-hidden="true">2.2.2.</strong> Word</a></li><li><a href="config/mappings/macro.html"><strong aria-hidden="true">2.2.3.</strong> Macro</a></li><li><a href="config/mappings/command.html"><strong aria-hidden="true">2.2.4.</strong> Command</a></li></ol></li><li><a href="config/kmap.html"><strong aria-hidden="true">2.3.</strong> Kmap file format</a></li><li><a href="config/modes.html"><strong aria-hidden="true">2.4.</strong> Modes</a></li><li><a href="config/options.html"><strong aria-hidden="true">2.5.</strong> Options</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Pipit User Guide</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="config/mappings/word.html#word" id="word"><h1>Word</h1></a>
+<a class="header" href="config/mappings/word.html#defining-words" id="defining-words"><h2>Defining words</h2></a>
+<p>Words are defined in the <code>dictionary</code> list in <code>settings.yaml</code>. The chords and key sequences for words are both automatically generated from that definition.</p>
+<p>The simplest way to define a word in the dictionary, such as <code>the</code>, is like this:</p>
+<pre><code>- {word: &quot;the&quot;}
+</code></pre>
+<p>By default, the chord will be generated by combining the existing <code>plain_key</code> chords mapped to each letter in the word. So in this example, the chord for <code>the</code> consists of the chords for <code>key_t</code>, <code>key_h</code>, and <code>key_e</code> pressed all at once.</p>
+<p>This chord-generation approach often causes conflicts, when multiple words would be assigned the same chord - like <code>&quot;the&quot;</code>, <code>&quot;teeth&quot;</code>, and <code>&quot;thee&quot;</code>. We call these conflicting words <code>anagrams</code>, and use <code>anagram_modifiers</code> to select which one we want. You can add up to 15 anagrams for the same chord, and order them in the dictionary such that the words you use most often come first. We can define <code>&quot;the&quot;</code>, <code>&quot;teeth&quot;</code> and <code>&quot;thee&quot;</code> like this:</p>
+<pre><code>- {word: &quot;the&quot;}
+- {word: &quot;teeth&quot;, anagram: 1}
+- {word: &quot;thee&quot;, anagram: 2}
+</code></pre>
+<p>Now you can type <code>&quot;teeth&quot;</code> by pressing the chords for <code>key_t</code>, <code>key_h</code>, <code>key_e</code>, and <code>mod_anagram1</code> all at once, or type <code>&quot;thee&quot;</code> by pressing them with <code>mod_anagram2</code>. Alternatively, if you forgot to use the correct <code>anagram_modifier</code>, you can press the <code>command_cycle_word</code> chord to delete the last word and replace it with the next anagram in the list. So if you had just typed <code>&quot;the&quot;</code>, pressing <code>command_cycle_word</code> once would replace it with <code>&quot;teeth&quot;</code>, and pressing it again would replace that with <code>&quot;thee&quot;</code>.</p>
+<a class="header" href="config/mappings/word.html#overlapping-letters" id="overlapping-letters"><h2>Overlapping letters</h2></a>
+<p>Anagram conflicts can also happen if two words have different letters, but the chords for those letters overlap. For example, if pressing <code>m</code> + <code>p</code> produces <code>z</code>, then <code>&quot;map&quot;</code> and <code>&quot;zap&quot;</code> are anagrams of each other. When you press all of those switches at once, the keyboard can't know whether you wanted to type an <code>m</code> and a <code>p</code>, or just a <code>z</code>, or some combination of the three.</p>
+<p>This also means that if you rearrange individual letters in the keymap, the anagrams will change, and you'll need to edit the anagram numbers in the dictionary list. The <code>pipit-config</code> tool will guide you in this process by pointing out both new anagram conflicts and words that have unnecessarily high anagram numbers left over from old conflicts.</p>
+<a class="header" href="config/mappings/word.html#custom-chords-and-briefs" id="custom-chords-and-briefs"><h2>Custom chords and briefs</h2></a>
+<p>You can also set custom chords for words - like a stenographer's brief. For example, <code>&quot;different&quot;</code> is a common word that, by default, requires an awkward combination of 7 switches (for <code>d</code>, <code>i</code>, <code>f</code>, <code>e</code>, <code>r</code>, <code>n</code>, and <code>t</code>). The following definition lets you to type it just by pressing <code>d</code>, <code>i</code>, and <code>f</code>, instead:</p>
+<pre><code>- {word: &quot;different&quot;, chord: &quot;dif&quot;}
+</code></pre>
+<p>This feature is also useful for adding longer phrases that you use frequently:</p>
+<pre><code>- {word: &quot;as far as I know&quot;, chord: &quot;afi&quot;}
+</code></pre>
+<a class="header" href="config/mappings/word.html#modifiers" id="modifiers"><h3>Modifiers</h3></a>
+<p>Word chords can be modified only by <code>word_modifiers</code> and <code>anagram_modifiers</code>.</p>
+<p>By default, words are typed out in all lowercase and preceded by a <code>space</code>. If one or more <code>word_modifiers</code> are pressed at the same time as the word's chord, they will change that behavior in the following ways:</p>
+<table><thead><tr><th> modifier       </th><th> effect                                                                                                                                                                                 </th></tr></thead><tbody>
+<tr><td> <code>mod_capital</code>  </td><td> Capitalize the first letter of the word.                                                                                                                                               </td></tr>
+<tr><td> <code>mod_nospace</code>  </td><td> Do not type a <code>space</code> before the word.                                                                                                                                                 </td></tr>
+<tr><td> <code>mod_shorten</code>  </td><td> First type <code>backspace</code> to shorten the previous word, then type the new word (without a space before it). You can turn <code>&quot;create&quot;</code> into <code>&quot;creating&quot;</code> by pressing <code>&quot;ing&quot;</code> + <code>mod_shorten</code> </td></tr>
+<tr><td> <code>mod_double</code>   </td><td> First repeat the last letter of the previous word, then type the new word (without a space before it). You can turn <code>&quot;tap&quot;</code> into <code>&quot;tapping&quot;</code> by pressing <code>&quot;ing&quot;</code> + <code>mod_double</code>.       </td></tr>
+<tr><td> <code>mod_anagram1</code> </td><td> Type the first anagram of the word.                                                                                                                                                    </td></tr>
+<tr><td> <code>mod_anagram2</code> </td><td> Type the second anagram of the word.                                                                                                                                                   </td></tr>
+</tbody></table>
+<a class="header" href="config/mappings/word.html#cycling-commands" id="cycling-commands"><h3>Cycling commands</h3></a>
+<p>If you forgot to use one of the word modifiers above, you can get the same effect by pressing one of these cycling commands immediately after the word. They will delete the word, and replace it with a new version.</p>
+<table><thead><tr><th> command                     </th><th> effect                                                      </th></tr></thead><tbody>
+<tr><td> <code>command_cycle_capital</code>     </td><td> Toggle whether the word's first letter is capitalized.      </td></tr>
+<tr><td> <code>command_cycle_nospace</code>     </td><td> Toggle whether the word is preceded by a space.             </td></tr>
+<tr><td> <code>command_shorten_last_word</code> </td><td> Go back and shorten the word before the one you just typed. </td></tr>
+<tr><td> <code>command_cycle_word</code>        </td><td> Cycle between all possible anagrams of a word. This lets you reach higher anagram numbers than you directly type using just <code>mod_anagram1</code> or <code>mod_anagram2</code>. </td></tr>
+</tbody></table>
+<a class="header" href="config/mappings/word.html#word-movement-commands" id="word-movement-commands"><h3>Word movement commands</h3></a>
+<p>The keyboard stores a history of the last few words you typed, and lets you move between them, delete them, or edit them (with the cycling commands in the previous section).</p>
+<table><thead><tr><th> command               </th><th> effect                                                                                                        </th></tr></thead><tbody>
+<tr><td> <code>command_delete_word</code> </td><td> Delete the word the previous word in the history (by typing the correct number of <code>backspaces</code>)               </td></tr>
+<tr><td> <code>command_left_word</code>   </td><td> Move the cursor to the end of the previous word in the history (by typing the correct number of left arrows.) </td></tr>
+<tr><td> <code>command_right_word</code>  </td><td> Move the cursor to the end of the next word in the history.                                                   </td></tr>
+<tr><td> <code>command_left_limit</code>  </td><td> Move the cursor to the oldest character in the history.                                                       </td></tr>
+<tr><td> <code>command_right_limit</code> </td><td> Move the cursor to the newest character in the history.                                                       </td></tr>
+</tbody></table>
+<p>For example, say you write the following phrase, using <code>word</code> chords for each word. The <code>|</code> indicates the cursor position.</p>
+<pre><code>Coffee with camera and sugar|
+</code></pre>
+<p>You now realize that you meant to say <code>&quot;cream&quot;</code> instead of <code>&quot;camera&quot;</code>, but forgot to press the correct anagram modifier. You can fix it by pressing this sequence of commands:</p>
+<ol>
+<li>
+<p><code>command_left_word</code> ⮕ <code>Coffee with camera and| sugar</code></p>
+</li>
+<li>
+<p><code>command_left_word</code> ⮕ <code>Coffee with camera| and sugar</code></p>
+</li>
+<li>
+<p><code>command_cycle_word</code> ⮕ <code>Coffee with cream| and sugar</code></p>
+</li>
+<li>
+<p><code>command_right_limit</code> ⮕ <code>Coffee with cream and sugar|</code></p>
+</li>
+</ol>
+<p>Note that the keyboard can't have perfect knowledge of what's on your screen, so the stored history can become invalid if you, for example, use text editor shortcuts, or use the mouse to re-position the cursor. The history is automatically erased whenever you type keys like <code>mod_ctrl</code> that are likely to invalidate the history. There's nothing we can do to prevent mouse movement from invalidating the history, though, so don't try to use history commands after mouse movements.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="config/mappings/plain.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="config/mappings/macro.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="config/mappings/plain.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="config/mappings/macro.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+        
+        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
+        
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+    </body>
+</html>

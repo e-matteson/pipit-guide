@@ -1,0 +1,288 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Macro - Pipit User Guide</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <base href="../../">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="_FontAwesome/css/font-awesome.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+
+    </head>
+    <body class="light">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="getting_started/README.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="getting_started/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li><a href="getting_started/running.html"><strong aria-hidden="true">1.2.</strong> Running</a></li><li><a href="getting_started/tutor.html"><strong aria-hidden="true">1.3.</strong> Typing Tutor</a></li></ol></li><li><a href="config/README.html"><strong aria-hidden="true">2.</strong> Configuration</a></li><li><ol class="section"><li><a href="config/terminology.html"><strong aria-hidden="true">2.1.</strong> Terminology</a></li><li><a href="config/mappings/README.html"><strong aria-hidden="true">2.2.</strong> Mappings</a></li><li><ol class="section"><li><a href="config/mappings/plain.html"><strong aria-hidden="true">2.2.1.</strong> Plain</a></li><li><a href="config/mappings/word.html"><strong aria-hidden="true">2.2.2.</strong> Word</a></li><li><a href="config/mappings/macro.html" class="active"><strong aria-hidden="true">2.2.3.</strong> Macro</a></li><li><a href="config/mappings/command.html"><strong aria-hidden="true">2.2.4.</strong> Command</a></li></ol></li><li><a href="config/kmap.html"><strong aria-hidden="true">2.3.</strong> Kmap file format</a></li><li><a href="config/modes.html"><strong aria-hidden="true">2.4.</strong> Modes</a></li><li><a href="config/options.html"><strong aria-hidden="true">2.5.</strong> Options</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Pipit User Guide</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="config/mappings/macro.html#macro" id="macro"><h1>Macro</h1></a>
+<p><code>macros</code> are similar to <code>words</code>, except that:</p>
+<ul>
+<li><code>macro</code> sequences can contain arbitrary modifiers, like <code>ctrl</code>.</li>
+<li><code>macro</code> sequences are not automatically prefixed with <code>space</code>.</li>
+<li><code>macro</code> chords are not automatically generated - you pick them yourself, and write them in a <code>.kmap</code> file.</li>
+<li><code>macro</code> chords cannot be modified by any kind of modifier. If you press a modifer at the same time, the chord will not be recognized as a <code>macro</code>.</li>
+</ul>
+<p>There are two different ways of writing a <code>macro's</code> key sequence in <code>settings.yaml</code>.</p>
+<a class="header" href="config/mappings/macro.html#simple-definition-method" id="simple-definition-method"><h2>Simple definition method</h2></a>
+<p>The first method is to simply write out the text as you want it to appear:</p>
+<pre><code>  macro_email: &quot;me@example.com&quot;
+
+  macro_hash_bang: &quot;#!/bin/bash&quot;
+</code></pre>
+<p>There are a few special symbols that can appear in the text and have the following meanings:</p>
+<table><thead><tr><th> symbol </th><th> key               </th><th> unicode </th></tr></thead><tbody>
+<tr><td> <code>\n</code>   </td><td> <code>key_enter</code>       </td><td>         </td></tr>
+<tr><td> <code>\t</code>   </td><td> <code>key_tab</code>         </td><td>         </td></tr>
+<tr><td> <code>\&quot;</code>   </td><td> <code>key_doublequote</code> </td><td>         </td></tr>
+<tr><td> <code>\\</code>   </td><td> <code>key_backslash</code>   </td><td>         </td></tr>
+<tr><td> <code>←</code>    </td><td> <code>key_left</code>        </td><td> U+2190  </td></tr>
+<tr><td> <code>↑</code>    </td><td> <code>key_up</code>          </td><td> U+2191  </td></tr>
+<tr><td> <code>→</code>    </td><td> <code>key_right</code>       </td><td> U+2192  </td></tr>
+<tr><td> <code>↓</code>    </td><td> <code>key_down</code>        </td><td> U+2193  </td></tr>
+<tr><td> <code>◀</code>    </td><td> <code>key_home</code>        </td><td> U+25C0  </td></tr>
+<tr><td> <code>▶</code>    </td><td> <code>key_end</code>         </td><td> U+25B6  </td></tr>
+</tbody></table>
+<p>Here are some examples of <code>macro</code> definitions that use special symbols:</p>
+<pre><code>  macro_vim_save: &quot;:w\n&quot;
+  macro_in_paren: &quot;()←&quot;
+  macro_in_doublequote: &quot;\&quot;\&quot;←&quot;
+  macro_if_c: &quot;if(){\n}↑▶←←&quot;
+
+</code></pre>
+<a class="header" href="config/mappings/macro.html#advanced-definition-method" id="advanced-definition-method"><h2>Advanced definition method</h2></a>
+<p>If you want a <code>macro</code> sequence to include modifiers like <code>ctrl</code> or other non-printing keys like
+<code>escape</code>, you'll need to use a second method, where you specify each keypress separately.</p>
+<pre><code>  macro_save_as:
+    - {key: &quot;KEY_S&quot;, mods: [&quot;MODIFIERKEY_CTRL&quot;, &quot;MODIFIERKEY_SHIFT&quot;]}
+
+  macro_save_and_quit:
+    - {key: &quot;KEY_S&quot;, mods: [&quot;MODIFIERKEY_CTRL&quot;]}
+    - {key: &quot;KEY_Q&quot;, mods: [&quot;MODIFIERKEY_CTRL&quot;]}
+
+  macro_emacs_save:
+    - {key: &quot;KEY_X&quot;, mods: [&quot;MODIFIERKEY_CTRL&quot;]}
+    - {key: &quot;KEY_S&quot;, mods: [&quot;MODIFIERKEY_CTRL&quot;]}
+
+  macro_emacs_insert_euro:
+    - {key: &quot;KEY_X&quot;, mods: [&quot;MODIFIERKEY_CTRL&quot;]}
+    - {key: &quot;KEY_8&quot;}
+    - {key: &quot;KEY_8&quot;, mods: [&quot;MODIFIERKEY_SHIFT&quot;]}
+    - {key: &quot;KEY_E&quot;, mods: [&quot;MODIFIERKEY_SHIFT&quot;]}
+</code></pre>
+<p>Each keypress is on a separate line, in curly brackets, and includes a <code>key</code>, a <code>mod</code> list, or both. The <code>mod</code> list can contain the following names:</p>
+<table><thead><tr><th> mods              </th><th>                                                           </th></tr></thead><tbody>
+<tr><td> MODIFIERKEY_CTRL  </td><td>                                                           </td></tr>
+<tr><td> MODIFIERKEY_SHIFT </td><td>                                                           </td></tr>
+<tr><td> MODIFIERKEY_ALT   </td><td>                                                           </td></tr>
+<tr><td> MODIFIERKEY_GUI   </td><td> A.K.A. windows key (❖), apple command key (⌘), or <code>super</code> </td></tr>
+</tbody></table>
+<p>and <code>key</code> can be any of the following names:</p>
+<table><thead><tr><th>                     </th><th>                    </th><th>                     </th><th>                 </th></tr></thead><tbody>
+<tr><td> KEY_A               </td><td> KEY_B              </td><td> KEY_C            </td><td> KEY_D           </td></tr>
+<tr><td> KEY_E               </td><td> KEY_F            </td><td> KEY_G              </td><td> KEY_H           </td></tr>
+<tr><td> KEY_I               </td><td> KEY_J            </td><td> KEY_K              </td><td> KEY_L           </td></tr>
+<tr><td> KEY_M               </td><td> KEY_N            </td><td> KEY_O              </td><td> KEY_P           </td></tr>
+<tr><td> KEY_Q               </td><td> KEY_R            </td><td> KEY_S              </td><td> KEY_T           </td></tr>
+<tr><td> KEY_U               </td><td> KEY_V            </td><td> KEY_W              </td><td> KEY_X           </td></tr>
+<tr><td> KEY_Y               </td><td> KEY_Z            </td><td> KEY_1              </td><td> KEY_2           </td></tr>
+<tr><td> KEY_3               </td><td> KEY_4            </td><td> KEY_5              </td><td> KEY_6           </td></tr>
+<tr><td> KEY_7               </td><td> KEY_8            </td><td> KEY_9              </td><td> KEY_0           </td></tr>
+<tr><td> KEY_ENTER           </td><td> KEY_ESC            </td><td> KEY_BACKSPACE    </td><td> KEY_TAB         </td></tr>
+<tr><td> KEY_SPACE           </td><td> KEY_MINUS        </td><td> KEY_EQUAL          </td><td> KEY_LEFT_BRACE  </td></tr>
+<tr><td> KEY_RIGHT_BRACE   </td><td> KEY_BACKSLASH      </td><td> KEY_NUMBER        </td><td> KEY_SEMICOLON   </td></tr>
+<tr><td> KEY_QUOTE           </td><td> KEY_TILDE        </td><td> KEY_COMMA          </td><td> KEY_PERIOD      </td></tr>
+<tr><td> KEY_SLASH           </td><td> KEY_CAPS_LOCK    </td><td> KEY_F1            </td><td> KEY_F2          </td></tr>
+<tr><td> KEY_F3             </td><td> KEY_F4           </td><td> KEY_F5             </td><td> KEY_F6          </td></tr>
+<tr><td> KEY_F7             </td><td> KEY_F8           </td><td> KEY_F9             </td><td> KEY_F10         </td></tr>
+<tr><td> KEY_F11           </td><td> KEY_F12          </td><td> KEY_PRINTSCREEN    </td><td> KEY_SCROLL_LOCK </td></tr>
+<tr><td> KEY_PAUSE           </td><td> KEY_INSERT      </td><td> KEY_HOME         </td><td> KEY_PAGE_UP     </td></tr>
+<tr><td> KEY_DELETE         </td><td> KEY_END         </td><td> KEY_PAGE_DOWN    </td><td> KEY_RIGHT       </td></tr>
+<tr><td> KEY_LEFT         </td><td> KEY_DOWN         </td><td> KEY_UP           </td><td> KEY_NUM_LOCK    </td></tr>
+<tr><td> KEYPAD_SLASH     </td><td> KEYPAD_ASTERIX     </td><td> KEYPAD_MINUS     </td><td> KEYPAD_PLUS     </td></tr>
+<tr><td> KEYPAD_ENTER     </td><td> KEYPAD_1         </td><td> KEYPAD_2           </td><td> KEYPAD_3        </td></tr>
+<tr><td> KEYPAD_4         </td><td> KEYPAD_5         </td><td> KEYPAD_6           </td><td> KEYPAD_7        </td></tr>
+<tr><td> KEYPAD_8         </td><td> KEYPAD_9         </td><td> KEYPAD_0           </td><td> KEYPAD_PERIOD   </td></tr>
+</tbody></table>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="config/mappings/word.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="config/mappings/command.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="config/mappings/word.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="config/mappings/command.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+        
+        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
+        
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+    </body>
+</html>

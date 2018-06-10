@@ -1,0 +1,252 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Options - Pipit User Guide</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <base href="../">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="_FontAwesome/css/font-awesome.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+
+    </head>
+    <body class="light">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="getting_started/README.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="getting_started/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li><a href="getting_started/running.html"><strong aria-hidden="true">1.2.</strong> Running</a></li><li><a href="getting_started/tutor.html"><strong aria-hidden="true">1.3.</strong> Typing Tutor</a></li></ol></li><li><a href="config/README.html"><strong aria-hidden="true">2.</strong> Configuration</a></li><li><ol class="section"><li><a href="config/terminology.html"><strong aria-hidden="true">2.1.</strong> Terminology</a></li><li><a href="config/mappings/README.html"><strong aria-hidden="true">2.2.</strong> Mappings</a></li><li><ol class="section"><li><a href="config/mappings/plain.html"><strong aria-hidden="true">2.2.1.</strong> Plain</a></li><li><a href="config/mappings/word.html"><strong aria-hidden="true">2.2.2.</strong> Word</a></li><li><a href="config/mappings/macro.html"><strong aria-hidden="true">2.2.3.</strong> Macro</a></li><li><a href="config/mappings/command.html"><strong aria-hidden="true">2.2.4.</strong> Command</a></li></ol></li><li><a href="config/kmap.html"><strong aria-hidden="true">2.3.</strong> Kmap file format</a></li><li><a href="config/modes.html"><strong aria-hidden="true">2.4.</strong> Modes</a></li><li><a href="config/options.html" class="active"><strong aria-hidden="true">2.5.</strong> Options</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Pipit User Guide</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="config/options.html#options" id="options"><h1>Options</h1></a>
+<p>The following options are available in <code>settings.yaml</code>.</p>
+<a class="header" href="config/options.html#timing-options" id="timing-options"><h2>Timing options</h2></a>
+<p>These timing options control how the firmware recognizes switch presses and releases as chords.</p>
+<table><thead><tr><th> Option                       </th><th> Description                                                                                                                                                                                                                                                                </th><th> Required?                                     </th><th> Value                         </th></tr></thead><tbody>
+<tr><td> <code>chord_delay</code>                </td><td> How quickly all the switches in a chord must be pressed for them to be recognized as a single chord. Increase it if you often fail to press whole chords at once. Decrease it if you often type too quickly and accidentally combine separate presses into a single chord. </td><td> Required                                      </td><td> Milliseconds                  </td></tr>
+<tr><td> <code>held_delay</code>                 </td><td> How long a switch must be held down before it will be reused in future chords.                                                                                                                                                                                             </td><td> Required                                      </td><td> Milliseconds                  </td></tr>
+<tr><td> <code>debounce_delay</code>             </td><td> How long a switch must stay down (or up) to be considered a real press (or release), and not an accidental bounce.                                                                                                                                                         </td><td> Required                                      </td><td> Milliseconds                  </td></tr>
+</tbody></table>
+<a class="header" href="config/options.html#examples-of-timing-options" id="examples-of-timing-options"><h3>Examples of timing options</h3></a>
+<p>This timing diagram shows a few examples of switch-pressing scenarios, to illustrate the meanings of the different delay options. Assume that pressing one switch sends <code>p</code>, pressing another sends <code>m</code>, and pressing them both at once sends <code>z</code>.</p>
+<pre><code>keys    |
+sent:   | timer name:     states of switches and timers over time:
+________|________________________________________________________________
+        |                 |-m----|
+   m    |
+        | debounce_delay  &lt;...&gt;
+________|________________________________________________________________
+        |                 |m|
+ (none) |
+        | debounce_delay  &lt;...&gt;
+________|________________________________________________________________
+        |                 |-m----------|
+        |                         |-p---|
+   z    |
+        | chord_delay     &lt;..........&gt;
+        | held_delay      &lt;.........................&gt;
+________|________________________________________________________________
+        |                 |-m------------------|
+        |                                 |-p---|
+  mp    |
+        | chord_delay     &lt;..........&gt;
+        | held_delay      &lt;.........................&gt;
+________|________________________________________________________________
+        |                 |-m----------------------------------|
+        |                                                 |-p---|
+  mz    |
+        | chord_delay     &lt;..........&gt;
+        | held_delay      &lt;.........................&gt;
+________|________________________________________________________________
+</code></pre>
+<p>Note that the <code>chord_delay</code> and <code>held_delay</code> timers reset after every new switch is pressed. This reset is not shown in the diagrams, because it's not relevant to these examples. It does mean that if you're pressing a large chord with many switches, you don't need to press all of them within <code>chord_delay</code> milliseconds - you just can't wait longer than that in between any two presses.</p>
+<a class="header" href="config/options.html#hardware-options" id="hardware-options"><h2>Hardware options</h2></a>
+<p>The correct values of these options are determined by the keyboard's hardware. They should not be changed, unless you are building/modifying your own keyboard harware.</p>
+<table><thead><tr><th> Option                   </th><th> Description                                                                                                                                                                                                                  </th><th> Required?                                     </th><th> Value                         </th></tr></thead><tbody>
+<tr><td> <code>board_name</code>             </td><td> The name of the microcontroller board used inside the keyboard.                                                                                                                                                              </td><td> Required                                      </td><td> <code>TEENSY_LC</code>, <code>FEATHER_M0_BLE</code> </td></tr>
+<tr><td> <code>row_pins</code>               </td><td> The microcontroller pins connected to each row in the switch matrix, split up by hand.                                                                                                                                       </td><td> Required                                      </td><td>                               </td></tr>
+<tr><td> <code>column_pins</code>            </td><td> The microcontroller pins connected to each column in the switch matrix, split up by hand.                                                                                                                                    </td><td> Required                                      </td><td>                               </td></tr>
+<tr><td> <code>kmap_format</code>            </td><td> The format of the chord blocks in the .kmap files. Each pair of numbers represents the row and column pins of one switch. The number of switches on each line must match the number of dots on each line of the kmap blocks. </td><td> Required.                                     </td><td>                               </td></tr>
+<tr><td> <code>rgb_led_pins</code>           </td><td> The microcontroller pins connected to the red, green, and blue channels of a RGB LED, if one is present.                                                                                                                     </td><td> Optional, LED disabled by default             </td><td> [pin, pin, pin]               </td></tr>
+<tr><td> <code>battery_level_pin</code>      </td><td> The microcontroller pin used to sense battery voltage, if a battery is present.                                                                                                                                              </td><td> Optional, battery sensing disabled by default </td><td> pin                           </td></tr>
+<tr><td> <code>use_standby_interrupts</code> </td><td> Use interrupts to detect presses instead of polling the switches. Interrupts are preferred, but require hardware support and may not be available for all boards and pin assignments.                                        </td><td> Optional, default <code>true</code>                      </td><td> <code>true</code> or <code>false</code>             </td></tr>
+</tbody></table>
+<a class="header" href="config/options.html#other-options" id="other-options"><h2>Other options</h2></a>
+<table><thead><tr><th> Option                         </th><th> Description                                                                                                                                                                                                        </th><th> Required?                          </th><th> Value                     </th></tr></thead><tbody>
+<tr><td> <code>debug_messages</code>               </td><td> How much debugging info to send over the serial connection. Messages can be viewed in the Arduino serial monitor.                                                                                                  </td><td> Optional, default <code>None</code>           </td><td> <code>None</code>, <code>Some</code>, <code>All</code>     </td></tr>
+<tr><td> <code>output_directory</code>             </td><td> Where to save the auto-generated <code>.cpp</code>/<code>.h</code> files containing the firmware configuration.                                                                                                                          </td><td> Optional, default <code>pipit-firmware</code> </td><td> path                      </td></tr>
+<tr><td> <code>word_space_position</code>          </td><td> Whether to automatically add space to the beginning or end of chorded words, or not at all. Recommended value is <code>Before</code>.                                                                                         </td><td> Optional, default <code>Before</code>         </td><td> <code>Before</code>, <code>After</code>, <code>None</code> </td></tr>
+<tr><td> <code>enable_led_typing_feedback</code>   </td><td> If true, flash the LED when a unrecognized chord is typed.                                                                                                                                                         </td><td> Optional, default <code>false</code>          </td><td> <code>true</code>, <code>false</code>           </td></tr>
+<tr><td> <code>enable_audio_typing_feedback</code> </td><td> If true, send a short serial message whenever a chord is typed. The host computer can listen for this message and produce a sound (see <a href="www.github.com/e-matteson/pipit-keyboard/blob/master/extras/audio">audio</a>) </td><td> Optional, default <code>false</code>          </td><td> <code>true</code>, <code>false</code>           </td></tr>
+</tbody></table>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="config/modes.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="config/modes.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+        
+        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
+        
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+    </body>
+</html>

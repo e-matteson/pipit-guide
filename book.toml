@@ -3,3 +3,6 @@ authors = ["e-matteson"]
 multilingual = false
 src = "src"
 title = "Pipit User Guide"
+
+[build]
+build-dir = "docs"

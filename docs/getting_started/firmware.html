@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Running - Pipit User Guide</title>
+        <title>Firmware - Pipit User Guide</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -69,7 +69,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="getting_started/README.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="getting_started/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li><a href="getting_started/running.html" class="active"><strong aria-hidden="true">1.2.</strong> Running</a></li><li><a href="getting_started/tutor.html"><strong aria-hidden="true">1.3.</strong> Typing Tutor</a></li></ol></li><li><a href="config/README.html"><strong aria-hidden="true">2.</strong> Configuration</a></li><li><ol class="section"><li><a href="config/terminology.html"><strong aria-hidden="true">2.1.</strong> Terminology</a></li><li><a href="config/mappings/README.html"><strong aria-hidden="true">2.2.</strong> Mappings</a></li><li><ol class="section"><li><a href="config/mappings/plain.html"><strong aria-hidden="true">2.2.1.</strong> Plain</a></li><li><a href="config/mappings/word.html"><strong aria-hidden="true">2.2.2.</strong> Word</a></li><li><a href="config/mappings/macro.html"><strong aria-hidden="true">2.2.3.</strong> Macro</a></li><li><a href="config/mappings/command.html"><strong aria-hidden="true">2.2.4.</strong> Command</a></li></ol></li><li><a href="config/kmap.html"><strong aria-hidden="true">2.3.</strong> Kmap file format</a></li><li><a href="config/modes.html"><strong aria-hidden="true">2.4.</strong> Modes</a></li><li><a href="config/options.html"><strong aria-hidden="true">2.5.</strong> Options</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="getting_started/README.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="getting_started/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li><a href="getting_started/tutor.html"><strong aria-hidden="true">1.2.</strong> Typing Tutor</a></li><li><a href="getting_started/firmware.html" class="active"><strong aria-hidden="true">1.3.</strong> Firmware</a></li></ol></li><li><a href="config/README.html"><strong aria-hidden="true">2.</strong> Configuration</a></li><li><ol class="section"><li><a href="config/terminology.html"><strong aria-hidden="true">2.1.</strong> Terminology</a></li><li><a href="config/mappings/README.html"><strong aria-hidden="true">2.2.</strong> Mappings</a></li><li><ol class="section"><li><a href="config/mappings/plain.html"><strong aria-hidden="true">2.2.1.</strong> Plain</a></li><li><a href="config/mappings/word.html"><strong aria-hidden="true">2.2.2.</strong> Word</a></li><li><a href="config/mappings/macro.html"><strong aria-hidden="true">2.2.3.</strong> Macro</a></li><li><a href="config/mappings/command.html"><strong aria-hidden="true">2.2.4.</strong> Command</a></li></ol></li><li><a href="config/kmap.html"><strong aria-hidden="true">2.3.</strong> Kmap file format</a></li><li><a href="config/modes.html"><strong aria-hidden="true">2.4.</strong> Modes</a></li><li><a href="config/options.html"><strong aria-hidden="true">2.5.</strong> Options</a></li><li><a href="config/cheatsheet.html"><strong aria-hidden="true">2.6.</strong> Cheatsheet</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -133,25 +133,69 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="getting_started/running.html#running" id="running"><h1>Running</h1></a>
-<a class="header" href="getting_started/running.html#configuration-tool" id="configuration-tool"><h2>Configuration tool</h2></a>
-<p>From inside the <code>pipit-keyboard</code> directory in a terminal, compile and run the configuration tool by entering:</p>
+                        <a class="header" href="getting_started/firmware.html#configuring-and-loading-firmware" id="configuring-and-loading-firmware"><h1>Configuring and loading firmware</h1></a>
+<a class="header" href="getting_started/firmware.html#running-the-configuration-tool" id="running-the-configuration-tool"><h2>Running the configuration tool</h2></a>
+<p>From the <code>pipit-keyboard</code> directory in a terminal, compile and run the configuration tool by entering:</p>
 <pre><code>$ cargo run
 </code></pre>
-<p>This will read <code>settings/settings.yaml</code></p>
+<p>This will look for a settings file in the default location, <code>settings/settings.yaml</code>. You can specify a different file instead:</p>
+<pre><code>$ cargo run -- settings/settings_evan.yaml
+</code></pre>
+<p>The configuration tool will read the settings file, generate C++ code expressing the desired configuration, and save that code in the <code>pipit-firmware</code> directory. The tool will warn you about possible issues with your choices, like if two mappings conflict with each other, or if the settings contain unused chords or sequences. You can choose to ignore these warnings and load the new firmware anyway, as long as you see that it successfully <code>Saved keyboard configuration to...</code>. For more information, see the chapter on <a href="config/README.html">configuration</a>.</p>
+<a class="header" href="getting_started/firmware.html#loading-the-keyboard-firmware" id="loading-the-keyboard-firmware"><h2>Loading the keyboard firmware</h2></a>
+<p>After changing settings and running the config tool, you can load the new firmware onto the keyboard.</p>
+<ol>
+<li>
+<p>Connect the keyboard to the computer with a USB cable, if it wasn't already plugged in.</p>
+</li>
+<li>
+<p>Launch the Arduino IDE.</p>
+</li>
+<li>
+<p>Open the file <code>pipit-firmware/pipit-firmware.ino</code>.</p>
+</li>
+<li>
+<p>In the menu bar, select <code>Tools -&gt; Board: -&gt; &quot;Teensy LC&quot;</code>.</p>
+</li>
+<li>
+<p>Select <code>Tools -&gt; USB Type: -&gt; &quot;Serial + Keyboard + Mouse + Joystick&quot;</code>.</p>
+</li>
+<li>
+<p>Select <code>Tools -&gt; CPU Speed: -&gt; &quot;24 MHz&quot;</code>.</p>
+</li>
+<li>
+<p>Go to <code>Tools -&gt; Port</code> and select which port the keyboard is connected to. The port name will vary, but might look something like <code>/dev/cu.usbmodem*</code> on a Mac, or <code>/dev/ttyACM*</code> in linux. You can check by unplugging the keyboard and seeing which entry in the port list disappears.</p>
+</li>
+<li>
+<p>Compile and upload the firmware by clicking the round arrow button, or by selecting <code>Sketch -&gt; Upload</code> in the menu bar. Look for messages printed in the bottom part of the window. If the upload was successful, you can now use the reconfigured keyboard. If it was not, see the troubleshooting steps below.</p>
+</li>
+</ol>
+<a class="header" href="getting_started/firmware.html#troubleshooting-compilation-errors" id="troubleshooting-compilation-errors"><h3>Troubleshooting compilation errors:</h3></a>
+<ul>
+<li>
+<p><code>Wrong board_name</code>: Check that you selected the right board in the IDE in step 4, and that it matches the <code>board_name</code> option in your settings file.</p>
+</li>
+<li>
+<p><code>'Keyboard' was not declared in this scope</code>: Check that you selected the right <code>USB Type</code> in step 5.</p>
+</li>
+<li>
+<p><code>Error compiling for board Teensy LC</code>, following <code>...ld: region 'FLASH' overflowed by ___ bytes</code>: The configuration is too large to fit on the microcontroller. Try removing unused words, macros, or modes to make space. Disabling unused features like <code>enable_audio_typing_feedback</code> can help save space as well.</p>
+</li>
+</ul>
+<p>Other issues can be reported and discussed using the github <a href="https://github.com/e-matteson/pipit-keyboard/issues">issue tracker</a>.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="getting_started/installation.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="getting_started/tutor.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="getting_started/tutor.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="config/README.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -163,13 +207,13 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="getting_started/installation.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="getting_started/tutor.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="getting_started/tutor.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="config/README.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
@@ -177,6 +221,21 @@
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         

@@ -1,5 +1,5 @@
 # Word
-## Defining words
+## Word definitions
 
 Words are defined in the `dictionary` list in `settings.yaml`. The chords and key sequences for words are both automatically generated from that definition.
 
@@ -45,7 +45,7 @@ This feature is also useful for adding longer phrases that you use frequently:
 
 Word chords can be modified only by `word_modifiers` and `anagram_modifiers`. 
 
-By default, words are typed out in all lowercase and preceded by a `space`. If one or more `word_modifiers` are pressed at the same time as the word's chord, they will change that behavior in the following ways:
+By default, words are automatically preceded by a `space`, and they're typed out in the same case as they're written in the dictionary (so usually, all lowercase). If one or more `word_modifiers` are pressed at the same time as the word's chord, they will change that behavior in the following ways:
 
 | modifier       | effect                                                                                                                                                                                 |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -56,7 +56,7 @@ By default, words are typed out in all lowercase and preceded by a `space`. If o
 | `mod_anagram1` | Type the first anagram of the word.                                                                                                                                                    |
 | `mod_anagram2` | Type the second anagram of the word.                                                                                                                                                   |
   
-### Cycling commands 
+### Cycle commands 
   
 If you forgot to use one of the word modifiers above, you can get the same effect by pressing one of these cycling commands immediately after the word. They will delete the word, and replace it with a new version.
 
@@ -97,4 +97,4 @@ You now realize that you meant to say `"cream"` instead of `"camera"`, but forgo
 
 4. `command_right_limit` ⮕ `Coffee with cream and sugar|`
 
-Note that the keyboard can't have perfect knowledge of what's on your screen, so the stored history can become invalid if you, for example, use text editor shortcuts, or use the mouse to re-position the cursor. The history is automatically erased whenever you type keys like `mod_ctrl` that are likely to invalidate the history. There's nothing we can do to prevent mouse movement from invalidating the history, though, so don't try to use history commands after mouse movements.
+Note that the keyboard can't have perfect knowledge of what's on your screen, so the stored history can become invalid if you, for example, use text editor shortcuts, or use the mouse to re-position the cursor. The history is automatically erased whenever you type keys like `mod_ctrl` that are likely to invalidate the history. There's nothing we can do to prevent mouse movement from invalidating the history, though, so don't try to use history commands after mouse movements. Holding a key long enough to trigger the host computer's key repeat will also invalidate the history.

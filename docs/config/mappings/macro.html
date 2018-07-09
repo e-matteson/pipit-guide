@@ -69,7 +69,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="getting_started/README.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="getting_started/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li><a href="getting_started/running.html"><strong aria-hidden="true">1.2.</strong> Running</a></li><li><a href="getting_started/tutor.html"><strong aria-hidden="true">1.3.</strong> Typing Tutor</a></li></ol></li><li><a href="config/README.html"><strong aria-hidden="true">2.</strong> Configuration</a></li><li><ol class="section"><li><a href="config/terminology.html"><strong aria-hidden="true">2.1.</strong> Terminology</a></li><li><a href="config/mappings/README.html"><strong aria-hidden="true">2.2.</strong> Mappings</a></li><li><ol class="section"><li><a href="config/mappings/plain.html"><strong aria-hidden="true">2.2.1.</strong> Plain</a></li><li><a href="config/mappings/word.html"><strong aria-hidden="true">2.2.2.</strong> Word</a></li><li><a href="config/mappings/macro.html" class="active"><strong aria-hidden="true">2.2.3.</strong> Macro</a></li><li><a href="config/mappings/command.html"><strong aria-hidden="true">2.2.4.</strong> Command</a></li></ol></li><li><a href="config/kmap.html"><strong aria-hidden="true">2.3.</strong> Kmap file format</a></li><li><a href="config/modes.html"><strong aria-hidden="true">2.4.</strong> Modes</a></li><li><a href="config/options.html"><strong aria-hidden="true">2.5.</strong> Options</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="getting_started/README.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="getting_started/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li><a href="getting_started/tutor.html"><strong aria-hidden="true">1.2.</strong> Typing Tutor</a></li><li><a href="getting_started/firmware.html"><strong aria-hidden="true">1.3.</strong> Firmware</a></li></ol></li><li><a href="config/README.html"><strong aria-hidden="true">2.</strong> Configuration</a></li><li><ol class="section"><li><a href="config/terminology.html"><strong aria-hidden="true">2.1.</strong> Terminology</a></li><li><a href="config/mappings/README.html"><strong aria-hidden="true">2.2.</strong> Mappings</a></li><li><ol class="section"><li><a href="config/mappings/plain.html"><strong aria-hidden="true">2.2.1.</strong> Plain</a></li><li><a href="config/mappings/word.html"><strong aria-hidden="true">2.2.2.</strong> Word</a></li><li><a href="config/mappings/macro.html" class="active"><strong aria-hidden="true">2.2.3.</strong> Macro</a></li><li><a href="config/mappings/command.html"><strong aria-hidden="true">2.2.4.</strong> Command</a></li></ol></li><li><a href="config/kmap.html"><strong aria-hidden="true">2.3.</strong> Kmap file format</a></li><li><a href="config/modes.html"><strong aria-hidden="true">2.4.</strong> Modes</a></li><li><a href="config/options.html"><strong aria-hidden="true">2.5.</strong> Options</a></li><li><a href="config/cheatsheet.html"><strong aria-hidden="true">2.6.</strong> Cheatsheet</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -260,6 +260,21 @@
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         

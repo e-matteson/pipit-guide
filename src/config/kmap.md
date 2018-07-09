@@ -29,4 +29,7 @@ There must be at least one blank line between blocks. There must not be any blan
 
 <!-- The `.`'s and `*`'s are meant to be laid out in the same arrangement as the physical switches on the keyboard. If you make a keyboard with a different number or arrangement of switches, you can change the `.kmap` file format to match your hardware. You must update the `kmap_format` option in `settings.yaml`, so that the configuration program can parse the kmap blocks correctly and know which row and column pins correspond to which characters in the block. -->
 
+
+If your text editor supports cutting and pasting rectangular regions of text, that's a convenient way of moving blocks around.
+
 An emacs mode providing syntax highlighting for `.kmap` files is available in [pipit-mode.el](www.github.com/e-matteson/pipit-keyboard/blob/master/extras/pipit-mode.el).

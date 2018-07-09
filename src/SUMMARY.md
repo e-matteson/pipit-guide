@@ -2,8 +2,8 @@
 
 - [Getting Started](./getting_started/README.md)
   - [Installation](./getting_started/installation.md)
-  - [Running](./getting_started/running.md)
   - [Typing Tutor](./getting_started/tutor.md)
+  - [Firmware](./getting_started/firmware.md)
 
 - [Configuration](./config/README.md)
   - [Terminology](./config/terminology.md)
@@ -15,3 +15,4 @@
   - [Kmap file format](./config/kmap.md)
   - [Modes](./config/modes.md)
   - [Options](./config/options.md)
+  - [Cheatsheet](./config/cheatsheet.md)

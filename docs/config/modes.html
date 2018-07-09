@@ -69,7 +69,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="getting_started/README.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="getting_started/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li><a href="getting_started/running.html"><strong aria-hidden="true">1.2.</strong> Running</a></li><li><a href="getting_started/tutor.html"><strong aria-hidden="true">1.3.</strong> Typing Tutor</a></li></ol></li><li><a href="config/README.html"><strong aria-hidden="true">2.</strong> Configuration</a></li><li><ol class="section"><li><a href="config/terminology.html"><strong aria-hidden="true">2.1.</strong> Terminology</a></li><li><a href="config/mappings/README.html"><strong aria-hidden="true">2.2.</strong> Mappings</a></li><li><ol class="section"><li><a href="config/mappings/plain.html"><strong aria-hidden="true">2.2.1.</strong> Plain</a></li><li><a href="config/mappings/word.html"><strong aria-hidden="true">2.2.2.</strong> Word</a></li><li><a href="config/mappings/macro.html"><strong aria-hidden="true">2.2.3.</strong> Macro</a></li><li><a href="config/mappings/command.html"><strong aria-hidden="true">2.2.4.</strong> Command</a></li></ol></li><li><a href="config/kmap.html"><strong aria-hidden="true">2.3.</strong> Kmap file format</a></li><li><a href="config/modes.html" class="active"><strong aria-hidden="true">2.4.</strong> Modes</a></li><li><a href="config/options.html"><strong aria-hidden="true">2.5.</strong> Options</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="getting_started/README.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="getting_started/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li><a href="getting_started/tutor.html"><strong aria-hidden="true">1.2.</strong> Typing Tutor</a></li><li><a href="getting_started/firmware.html"><strong aria-hidden="true">1.3.</strong> Firmware</a></li></ol></li><li><a href="config/README.html"><strong aria-hidden="true">2.</strong> Configuration</a></li><li><ol class="section"><li><a href="config/terminology.html"><strong aria-hidden="true">2.1.</strong> Terminology</a></li><li><a href="config/mappings/README.html"><strong aria-hidden="true">2.2.</strong> Mappings</a></li><li><ol class="section"><li><a href="config/mappings/plain.html"><strong aria-hidden="true">2.2.1.</strong> Plain</a></li><li><a href="config/mappings/word.html"><strong aria-hidden="true">2.2.2.</strong> Word</a></li><li><a href="config/mappings/macro.html"><strong aria-hidden="true">2.2.3.</strong> Macro</a></li><li><a href="config/mappings/command.html"><strong aria-hidden="true">2.2.4.</strong> Command</a></li></ol></li><li><a href="config/kmap.html"><strong aria-hidden="true">2.3.</strong> Kmap file format</a></li><li><a href="config/modes.html" class="active"><strong aria-hidden="true">2.4.</strong> Modes</a></li><li><a href="config/options.html"><strong aria-hidden="true">2.5.</strong> Options</a></li><li><a href="config/cheatsheet.html"><strong aria-hidden="true">2.6.</strong> Cheatsheet</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -134,19 +134,63 @@
                 <div id="content" class="content">
                     <main>
                         <a class="header" href="config/modes.html#modes" id="modes"><h1>Modes</h1></a>
-<p>Use cases:</p>
+<p>Modes let you switch between multiple layouts on-the-fly, without re-loading your keyboard firmware.</p>
+<p>Here are examples of extra modes you might want to create, in addition to the <code>default_mode</code>:</p>
 <ul>
-<li>standard typing with words</li>
-<li>gaming modes for specific games, w+a not a chord</li>
-<li>windows mode: change nothing but some shortcuts</li>
-<li>one-handed hotkey modes, for specific programs</li>
-<li>one-handed typing</li>
+<li>A mode that puts photoshop hotkeys under your left hand, to use while you operate the mouse with your right hand.</li>
+<li>A one-handed typing layout that lets you access the whole alphabet with either hand.</li>
+<li>Gaming modes that have layouts optimized for particular games, and act like a conventional keyboard instead of a chording keyboard when you press multiple switches at once.</li>
+<li>Windows mode: If your <code>default_mode</code> has macros that send Mac shortcuts, you can create another mode that overrides just those macros to send the Windows shortcuts instead, or vice versa.</li>
 </ul>
 <a class="header" href="config/modes.html#configuring-modes" id="configuring-modes"><h2>Configuring modes</h2></a>
-<p>Kmap files specify which chord you press to type each plain_key, macro, or command.</p>
-<p>If <code>use_words</code> is true, use this kmap to generate chords for all the words in the dictionary.</p>
-<a class="header" href="config/modes.html#adding-new-modes" id="adding-new-modes"><h2>Adding new modes</h2></a>
-<p>Must edit <code>Pipit.cpp</code>.</p>
+<p>The <code>settings.yaml</code> file has a <code>modes:</code> list, where each entry is the name of a mode followed by information about it:</p>
+<pre><code>modes:
+  default_mode:
+    keymaps:
+      - {file: &quot;settings/keymaps/dvorak24.kmap&quot;, use_words: true}
+
+  windows_mode:
+    keymaps:
+      - {file: &quot;settings/keymaps/windows_shortcuts.kmap&quot;}
+      - {file: &quot;settings/keymaps/dvorak24.kmap&quot;, use_words: true}
+
+  gaming_mode:
+    keymaps:
+      - {file: &quot;settings/keymaps/gaming_test.kmap&quot;}
+    gaming: true
+</code></pre>
+<a class="header" href="config/modes.html#keymaps" id="keymaps"><h3>Keymaps</h3></a>
+<p>The first piece of information you to need to give about a mode is which keymap file(s) it uses. All modes draw from the same set of sequences defined in the settings file. The difference between modes is in which chord (if any) they assign to each of those sequences.</p>
+<p>If you list multiple keymaps for a mode, like in the <code>windows_mode</code> example, keymaps higher up in the list will override the ones below.</p>
+<pre><code>  windows_mode:
+    keymaps:
+      - {file: &quot;settings/keymaps/windows_shortcuts.kmap&quot;}
+      - {file: &quot;settings/keymaps/dvorak24.kmap&quot;, use_words: true}
+</code></pre>
+<p>Let's say that <code>dvorak24.kmap</code> assigns a certain chord to <code>macro_save_as</code> (which sends <code>⌘-shift-s</code>), and <code>windows_shortcuts.kmap</code> assigns the <em>same chord</em> to <code>macro_windows_save_as</code> (which sends <code>ctrl-shift-s</code>). Now, pressing that chord while in <code>windows_mode</code> will trigger <code>macro_windows_save_as</code>, while all other chords act just the same as they would in <code>default_mode</code>. This makes it simple to toggle between Mac and Windows-style shortcuts by switching modes.</p>
+<p>For each <code>.kmap</code> file you list, you can say whether you want to use this keymap to generate word chords. If you add <code>use_words: true</code>, then the chords for the alphabet letters in this keymap will be combined together to create a chord for every word in the dictionary. If you add <code>use_words: false</code> or just leave it blank, no word chords will be generated.</p>
+<p>You'll probably only have one <code>.kmap</code> file that's suitable for generating word chords - in this case, it's <code>dvorak24.kmap</code>. It needs to have a chord for each letter in the alphabet, and the anagram numbers in the dictionary need to be carefully chosen to avoid conflicts caused by those particular letter chords. So it wouldn't make sense to try using the same dictionary with two different keymaps.</p>
+<a class="header" href="config/modes.html#gaming" id="gaming"><h3>Gaming</h3></a>
+<p>After listing a mode's keymap files, you can specify whether it's a special gaming mode by adding <code>gaming: true</code>.</p>
+<pre><code>  gaming_mode:
+    keymaps:
+      - {file: &quot;settings/keymaps/gaming_test.kmap&quot;}
+    gaming: true
+</code></pre>
+<p>This changes how the keyboard handles multiple presses. Chording keyboards don't normally work well for gaming. If you're using <code>wasd</code> keys for movement, you'd want to be able to move diagonally by pressing <code>w</code> and <code>d</code> together. This keyboard, however, would treat that combination as a totally different chord, and unless you had manually defined that chord, it would just send nothing. Setting <code>gaming: true</code> fixes this: pressing <code>w</code> and <code>d</code> will send both <code>w</code> and <code>d</code> at the same time, like a conventional keyboard.</p>
+<p>This of course means that all the chords used in a gaming mode can only contain a single switch. Multiple-switch chords won't be detected.</p>
+<!-- Kmap files specify which chord you press to type each plain_key, macro, or command.  -->
+<!-- If `use_words` is true, use this kmap to generate chords for all the words in the dictionary. -->
+<!-- Each mode can use multiple keymap files. If the same chord appears in more than 1 keymap, the last keymap takes priority. This is useful if you want to override just a few chords, like to change apple shortcuts to windows shortcuts when you switch between computers. -->
+<a class="header" href="config/modes.html#switching-modes" id="switching-modes"><h2>Switching modes</h2></a>
+<p>The keyboard will always start in <code>default_mode</code> after powering on. You switch to a mode using a <a href="config/mappings/command">command</a>, like <code>command_windows_mode</code> or <code>command_default_mode</code>.</p>
+<p>If you create a new mode, you'll also have to manually create a command for switching to that mode. First, if your mode is called <code>my_new_mode</code>, give your command a name like <code>command_my_new_mode</code>, and add the name to the <code>commands:</code> list in <code>settings.yaml</code>. Next, assign it a chord in whichever keymap files you want to be able to access this mode from.</p>
+<p>Finally, edit the firmware to tell it what to do when this command is triggered. Open <code>pipit-firmware/Pipit.cpp</code>, and scroll down to where it says <code>/**** Add cases for new commands here! ****/</code>, somewhere around line 18. Add a new block of lines that looks like this, replacing the command name and mode name with your own, but in ALL CAPS:</p>
+<pre><code>case conf::command_enum::COMMAND_MY_NEW_MODE:
+  mode = conf::mode_enum::MY_NEW_MODE;
+  break;
+</code></pre>
+<p>In the future, this process will be simplified, so that you won't need to edit the firmware to create a new mode.</p>
 
                     </main>
 
@@ -185,6 +229,21 @@
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         

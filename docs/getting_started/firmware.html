@@ -141,7 +141,8 @@
 <p>This will look for a settings file in the default location, <code>settings/settings.yaml</code>. You can specify a different file instead:</p>
 <pre><code>$ cargo run -- settings/settings_evan.yaml
 </code></pre>
-<p>The configuration tool will read the settings file, generate C++ code expressing the desired configuration, and save that code in the <code>pipit-firmware</code> directory. The tool will warn you about possible issues with your choices, like if two mappings conflict with each other, or if the settings contain unused chords or sequences. You can choose to ignore these warnings and load the new firmware anyway, as long as you see that it successfully <code>Saved keyboard configuration to...</code>. For more information, see the chapter on <a href="config/README.html">configuration</a>.</p>
+<p>The configuration tool will read the settings file, generate C++ code expressing the desired configuration, and save that code in the <code>pipit-firmware</code> directory. The tool will warn you about possible issues with your choices, like if two mappings conflict with each other, or if the settings contain unused chords or sequences. You can choose to ignore these warnings and load the new firmware anyway, as long as you see that it successfully <code>Saved keyboard configuration to...</code>.</p>
+<p>For more information, see the chapter on <a href="config/README.html">configuration</a>.</p>
 <a class="header" href="getting_started/firmware.html#loading-the-keyboard-firmware" id="loading-the-keyboard-firmware"><h2>Loading the keyboard firmware</h2></a>
 <p>After changing settings and running the config tool, you can load the new firmware onto the keyboard.</p>
 <ol>
@@ -221,21 +222,6 @@
 
         </div>
 
-        
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3001");
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload(true); // force reload from server (not from cache)
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
         
 
         

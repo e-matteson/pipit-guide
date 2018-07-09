@@ -15,7 +15,9 @@ This will look for a settings file in the default location, `settings/settings.y
 $ cargo run -- settings/settings_evan.yaml
 ```
 
-The configuration tool will read the settings file, generate C++ code expressing the desired configuration, and save that code in the `pipit-firmware` directory. The tool will warn you about possible issues with your choices, like if two mappings conflict with each other, or if the settings contain unused chords or sequences. You can choose to ignore these warnings and load the new firmware anyway, as long as you see that it successfully `Saved keyboard configuration to...`. For more information, see the chapter on [configuration](config/README.html).
+The configuration tool will read the settings file, generate C++ code expressing the desired configuration, and save that code in the `pipit-firmware` directory. The tool will warn you about possible issues with your choices, like if two mappings conflict with each other, or if the settings contain unused chords or sequences. You can choose to ignore these warnings and load the new firmware anyway, as long as you see that it successfully `Saved keyboard configuration to...`.
+
+For more information, see the chapter on [configuration](config/README.html).
 
 
 ## Loading the keyboard firmware

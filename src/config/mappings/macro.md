@@ -4,11 +4,11 @@
 - `macro` sequences can contain arbitrary modifiers, like `ctrl`.
 - `macro` sequences are not automatically prefixed with `space`.
 - `macro` chords are not automatically generated - you pick them yourself, and write them in a `.kmap` file.
-- `macro` chords cannot be modified by any kind of modifier. If you press a modifer at the same time, the chord will not be recognized as a `macro`.
+- `macro` chords cannot be modified by any kind of modifier. If you press a modifer at the same time, the chord will no longer be recognized as a `macro`.
 
-There are two different ways of writing a `macro's` key sequence in `settings.yaml`. 
+There are two different ways of writing a `macro's` key sequence in `settings.yaml`, described below.
 
-## Simple definition method
+## Simple macro definitions
 
 The first method is to simply write out the text as you want it to appear:
 
@@ -44,7 +44,7 @@ Here are some examples of `macro` definitions that use special symbols:
 
 ```
 
-## Advanced definition method
+## Advanced macro definitions
  
 If you want a `macro` sequence to include modifiers like `ctrl` or other non-printing keys like 
 `escape`, you'll need to use a second method, where you specify each keypress separately.

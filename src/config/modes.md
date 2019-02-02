@@ -29,9 +29,11 @@ The `settings.yaml` file has a `modes:` list, where each entry is the name of a 
           - {file: "settings/keymaps/gaming_test.kmap"}
         gaming: true
       
+      
+      
 ### Keymaps
 
-The first piece of information you to need to give about a mode is which keymap file(s) it uses. All modes draw from the same set of sequences defined in the settings file. The difference between modes is in which chord (if any) they assign to each of those sequences. 
+When describing a mode, the first piece of information you need to give is which keymap file(s) it uses. All modes draw from the same set of sequences defined in the settings file. The difference between modes is in which chord (if any) they assign to each of those sequences. 
 
 If you list multiple keymaps for a mode, like in the `windows_mode` example, keymaps higher up in the list will override the ones below. 
 
@@ -55,7 +57,7 @@ After listing a mode's keymap files, you can specify whether it's a special gami
           - {file: "settings/keymaps/gaming_test.kmap"}
         gaming: true
         
-This changes how the keyboard handles multiple presses. Chording keyboards don't normally work well for gaming. If you're using `wasd` keys for movement, you'd want to be able to move diagonally by pressing `w` and `d` together. This keyboard, however, would treat that combination as a totally different chord, and unless you had manually defined that chord, it would just send nothing. Setting `gaming: true` fixes this: pressing `w` and `d` will send both `w` and `d` at the same time, like a conventional keyboard. 
+This changes how the keyboard handles multiple presses. Chording keyboards don't normally work well for gaming. If you're using `wasd` keys for movement, you'd want to be able to move diagonally by pressing `w` and `d` together. A chording keyboard, however, would treat that combination as an entirely new chord, and unless you had manually defined that chord already, it would just send nothing. Setting `gaming: true` fixes this: pressing `w` and `d` will send both `w` and `d` at the same time, like a conventional keyboard. 
 
 This of course means that all the chords used in a gaming mode can only contain a single switch. Multiple-switch chords won't be detected.
         
@@ -66,15 +68,6 @@ This of course means that all the chords used in a gaming mode can only contain 
 
 ## Switching modes
 
-The keyboard will always start in `default_mode` after powering on. You switch to a mode using a [command](config/mappings/command), like `command_windows_mode` or `command_default_mode`.
-
-If you create a new mode, you'll also have to manually create a command for switching to that mode. First, if your mode is called `my_new_mode`, give your command a name like `command_my_new_mode`, and add the name to the `commands:` list in `settings.yaml`. Next, assign it a chord in whichever keymap files you want to be able to access this mode from. 
-
-Finally, edit the firmware to tell it what to do when this command is triggered. Open `pipit-firmware/Pipit.cpp`, and scroll down to where it says `/**** Add cases for new commands here! ****/`, somewhere around line 18. Add a new block of lines that looks like this, replacing the command name and mode name with your own, but in ALL CAPS:
-
-    case conf::command_enum::COMMAND_MY_NEW_MODE:
-      mode = conf::mode_enum::MY_NEW_MODE;
-      break;
+The keyboard will always start in the mode named `default_mode` after powering on. You switch to a mode using a [command](config/mappings/command), like `command_switch_to_windows_mode` or `command_switch_to_default_mode`. These commands are special: unlike others, they're not written in the `commands:` list in `settings.yaml`. Instead, they're automatically created for each mode, by prepending `command_switch_to_` to the mode name. The chords for these commands are defined in `.kmap` files, as usual.
 
 
-In the future, this process will be simplified, so that you won't need to edit the firmware to create a new mode. 

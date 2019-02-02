@@ -25,7 +25,7 @@ Now you can type `"teeth"` by pressing the chords for `key_t`, `key_h`, `key_e`,
 
 Anagram conflicts can also happen if two words have different letters, but the chords for those letters overlap. For example, if pressing `m` + `p` produces `z`, then `"map"` and `"zap"` are anagrams of each other. When you press all of those switches at once, the keyboard can't know whether you wanted to type an `m` and a `p`, or just a `z`, or some combination of the three. 
 
-This also means that if you rearrange individual letters in the keymap, the anagrams will change, and you'll need to edit the anagram numbers in the dictionary list. The `pipit-config` tool will guide you in this process by pointing out both new anagram conflicts and words that have unnecessarily high anagram numbers left over from old conflicts.
+This also means that if you rearrange individual letters in the keymap, the anagrams will change, and you'll need to edit the anagram numbers in the dictionary list. The `pipit-config` tool will guide you in this process by pointing out both new anagram conflicts and words that have unnecessarily high anagram numbers left over from previous conflicts.
 
 ## Custom chords and briefs
 
@@ -39,7 +39,10 @@ This feature is also useful for adding longer phrases that you use frequently:
 
 ```
 - {word: "as far as I know", chord: "afi"}
+- {word: "sounds good", chord: "sg"}
+- {word: "thank you for", chord: "tyf"}
 ```
+
 
 ### Modifiers 
 
@@ -65,7 +68,7 @@ If you forgot to use one of the word modifiers above, you can get the same effec
 | `command_cycle_capital`     | Toggle whether the word's first letter is capitalized.      |
 | `command_cycle_nospace`     | Toggle whether the word is preceded by a space.             |
 | `command_shorten_last_word` | Go back and shorten the word before the one you just typed. |
-| `command_cycle_word`        | Cycle between all possible anagrams of a word. This lets you reach higher anagram numbers than you directly type using just `mod_anagram1` or `mod_anagram2`. |
+| `command_cycle_word`        | Cycle between all possible anagrams of a word. This lets you reach higher anagram numbers than you could directly type using just `mod_anagram1` or `mod_anagram2`. |
 
 ### Word movement commands
 

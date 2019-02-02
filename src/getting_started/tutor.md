@@ -2,7 +2,7 @@
 
 The typing tutor teaches you the layout of the keyboard. It gives you a line of text to copy, and guides you with a hint showing how to type the next letter.
 
-<img src="assets/single.png" width="500" />
+<img src="assets/quickbrownfox.png" width="500" />
 
 As you learn each letter, the tutor will stop showing you hints for that letter. If you mis-type a letter, the hint for the correct letter will reappear in blue, and the location of the incorrect letter you *actually* pressed will appear in red.
 
@@ -46,7 +46,7 @@ By default, the tutor won't let you continue after typing a wrong letter. The wr
 
 # Note: 
 
-The tutor has no way to know which physical switches you're actually pressing on the keyboard. All it knows are which letters have been typed. If you mash an unused combination of many switches that doesn't actually type anything, the tutor won't display any red hints. If you accidentally chord a whole word, it will only display a red hint for the last letter in that word.
+The tutor has no way of knowing which physical switches you're actually pressing on the keyboard. It only knows which letters the computer received. If you mash an unused combination of many switches that doesn't actually type anything, the tutor won't display any red hints. If you accidentally chord a whole word, it will only display a red hint for the last letter in that word.
 
 Similarly, the tutor can't know the true layout of your keyboard, it can only assume the layout matches the settings file you gave it. If you update the settings file without re-loading the new keyboard firmware, or you switch the keyboard's mode without switching to the same mode in the tutor's options menu, then the hints will be incorrect.
 

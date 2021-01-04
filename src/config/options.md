@@ -10,7 +10,6 @@ These timing options control how the firmware recognizes switch presses and rele
 |------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|-------------------------------|
 | `chord_delay`                | How quickly all the switches in a chord must be pressed for them to be recognized as a single chord. Increase it if you often fail to press whole chords at once. Decrease it if you often type too quickly and accidentally combine separate presses into a single chord. | Required                                      | Milliseconds                  |
 | `held_delay`                 | How long a switch must be held down before it will be reused in future chords.                                                                                                                                                                                             | Required                                      | Milliseconds                  |
-| `debounce_delay`             | How long a switch must stay down (or up) to be considered a real press (or release), and not an accidental bounce.                                                                                                                                                         | Required                                      | Milliseconds                  |
 
 ### Examples of timing options
 
@@ -19,14 +18,6 @@ This timing diagram shows a few examples of switch-pressing scenarios, to illust
 ```
 keys    |
 sent:   | timer name:     states of switches and timers over time:
-________|________________________________________________________________
-        |                 |-m----|
-   m    |
-        | debounce_delay  <...>
-________|________________________________________________________________
-        |                 |m|
- (none) |
-        | debounce_delay  <...>
 ________|________________________________________________________________
         |                 |-m----------|
         |                         |-p---|

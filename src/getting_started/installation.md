@@ -18,14 +18,9 @@ The configuration tool and typing tutor have been tested on Linux and Mac OSX. T
 
 ## Arduino IDE
 
-The Arduino IDE allows you to re-program the microcontroller inside the keyboard, updating the firmware configuration.
+The Arduino IDE allows you to re-program the microcontroller inside the keyboard, updating the firmware and changing the configuration.
 
 1. Install the [Arduino IDE](https://www.arduino.cc/en/Main/Software). You must install the offline IDE version, instead of using the online "Arduino Create" tool.
 
 2. Install the [Teensyduino](https://www.pjrc.com/teensy/teensyduino.html) add-on to the Arduino IDE, to support the `TeensyLC` board used in the keyboard.
-
-<!-- * If your keyboard contains a `Teensy LC` microcontroller (USB keyboard support only): -->
-
-<!-- * If your keyboard contains an `Adafruit Feather BLE M0` microcontroller (bluetooth keyboard support): install SAMD support through the arduino boards manager, according to [adafruit's instructions](https://learn.adafruit.com/adafruit-feather-m0-bluefruit-le/using-with-arduino-ide). -->
-
 

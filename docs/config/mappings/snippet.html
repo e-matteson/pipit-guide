@@ -3,12 +3,13 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Getting Started - Pipit User Guide</title>
+        <title>Snippet - Pipit User Guide</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
+        <base href="../../">
 
         <link rel="stylesheet" href="book.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -68,7 +69,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="getting_started/README.html" class="active"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="getting_started/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li><a href="getting_started/tutor.html"><strong aria-hidden="true">1.2.</strong> Typing Tutor</a></li><li><a href="getting_started/firmware.html"><strong aria-hidden="true">1.3.</strong> Firmware</a></li></ol></li><li><a href="config/README.html"><strong aria-hidden="true">2.</strong> Configuration</a></li><li><ol class="section"><li><a href="config/terminology.html"><strong aria-hidden="true">2.1.</strong> Terminology</a></li><li><a href="config/mappings/README.html"><strong aria-hidden="true">2.2.</strong> Mappings</a></li><li><ol class="section"><li><a href="config/mappings/plain.html"><strong aria-hidden="true">2.2.1.</strong> Plain</a></li><li><a href="config/mappings/word.html"><strong aria-hidden="true">2.2.2.</strong> Word</a></li><li><a href="config/mappings/snippet.html"><strong aria-hidden="true">2.2.3.</strong> Snippet</a></li><li><a href="config/mappings/macro.html"><strong aria-hidden="true">2.2.4.</strong> Macro</a></li><li><a href="config/mappings/command.html"><strong aria-hidden="true">2.2.5.</strong> Command</a></li></ol></li><li><a href="config/kmap.html"><strong aria-hidden="true">2.3.</strong> Kmap file format</a></li><li><a href="config/modes.html"><strong aria-hidden="true">2.4.</strong> Modes</a></li><li><a href="config/options.html"><strong aria-hidden="true">2.5.</strong> Options</a></li><li><a href="config/cheatsheet.html"><strong aria-hidden="true">2.6.</strong> Cheatsheet</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="getting_started/README.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="getting_started/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li><a href="getting_started/tutor.html"><strong aria-hidden="true">1.2.</strong> Typing Tutor</a></li><li><a href="getting_started/firmware.html"><strong aria-hidden="true">1.3.</strong> Firmware</a></li></ol></li><li><a href="config/README.html"><strong aria-hidden="true">2.</strong> Configuration</a></li><li><ol class="section"><li><a href="config/terminology.html"><strong aria-hidden="true">2.1.</strong> Terminology</a></li><li><a href="config/mappings/README.html"><strong aria-hidden="true">2.2.</strong> Mappings</a></li><li><ol class="section"><li><a href="config/mappings/plain.html"><strong aria-hidden="true">2.2.1.</strong> Plain</a></li><li><a href="config/mappings/word.html"><strong aria-hidden="true">2.2.2.</strong> Word</a></li><li><a href="config/mappings/snippet.html" class="active"><strong aria-hidden="true">2.2.3.</strong> Snippet</a></li><li><a href="config/mappings/macro.html"><strong aria-hidden="true">2.2.4.</strong> Macro</a></li><li><a href="config/mappings/command.html"><strong aria-hidden="true">2.2.5.</strong> Command</a></li></ol></li><li><a href="config/kmap.html"><strong aria-hidden="true">2.3.</strong> Kmap file format</a></li><li><a href="config/modes.html"><strong aria-hidden="true">2.4.</strong> Modes</a></li><li><a href="config/options.html"><strong aria-hidden="true">2.5.</strong> Options</a></li><li><a href="config/cheatsheet.html"><strong aria-hidden="true">2.6.</strong> Cheatsheet</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -132,21 +133,51 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="getting_started/README.html#pipit-user-guide-img-srcassetshandwing2_001png-width75" id="pipit-user-guide-img-srcassetshandwing2_001png-width75"><h1>Pipit User Guide <img src="assets/handwing2_001.png" width="75"/></h1></a>
-<p>This guide explains how to configure and use the pipit keyboard.</p>
-<a class="header" href="getting_started/README.html#strategy-for-getting-started" id="strategy-for-getting-started"><h2>Strategy for getting started</h2></a>
-<p>Print a copy of the cheatsheet that shows the locations of commonly-used keys. Install the typing tutor and use it to practice typing letters, numbers, and punctuation. Jump into doing real work using the keyboard as early as you can. It will be slow at first, but that's the best way to improve.</p>
-<p>Once you comfortably know the positions of every letter, start chording small words all at once by pressing every letter in the word at the same time: when you want to type <code>&quot;the&quot;</code>, line up your fingers over <code>t</code>,<code>h</code>, and <code>e</code> and press them together. If that gives you the wrong word, press <code>command_cycle_word</code> and see if that fixes it. Read the section on <a href="config/mappings/word.html">words</a> to learn more.</p>
-<p>Use the configuration tool to customize the keyboard's dictionary with the words you use most often, add macros for common shortcuts or code snippets, add modes for specific games, or add one-handed modes with hotkeys for a specific program.</p>
+                        <a class="header" href="config/mappings/snippet.html#snippet" id="snippet"><h1>Snippet</h1></a>
+<!-- Like words, snippets let you send a sequence of keys by pressing a chord. -->
+Snippets are similar to words, except they aren't preceded by a space and they can't be modified by `word_modifiers` or `anagram_modifiers` (or any other type of modifier). Here's the definition for a snippet that will type a smiley face when you press `(` and `:` at the same time:
+<pre><code>  - {snippet: &quot;(:&quot;}
+</code></pre>
+<p>It's better to define this as a snippet than as a word because it wouldn't make sense to capitalize a smiley face.
+If we had defined it as a word, pressing <code>mod_capital</code> at the same time would produce <code>9:</code>, which is never what we want.</p>
+<p>By default, the snippet's chord will be generated by combining the existing <code>plain_key</code> chords mapped to every character in the snippet's sequence. However, it's usually more useful to specify a different, simpler chord. This snippet will type your email address when you press <code>space</code>, <code>m</code>, and <code>e</code> at the same time:</p>
+<pre><code>  - {snippet: &quot;me@example.com&quot;, chord: &quot; me&quot;}
+</code></pre>
+<!-- If you don't want the snippet's chord to depend on the chords assigned to `space`, `m`, and `e`, consider using a [macro](#macro) instead of a snippet. -->
+<a class="header" href="config/mappings/snippet.html#special-symbols" id="special-symbols"><h2>Special symbols</h2></a>
+<p>These special symbols can appear in a snippet definition to represent keys that can't be displayed normally:</p>
+<table><thead><tr><th> symbol </th><th> key               </th><th> unicode </th></tr></thead><tbody>
+<tr><td> <code>\n</code>   </td><td> <code>key_enter</code>       </td><td>         </td></tr>
+<tr><td> <code>\t</code>   </td><td> <code>key_tab</code>         </td><td>         </td></tr>
+<tr><td> <code>\&quot;</code>   </td><td> <code>key_doublequote</code> </td><td>         </td></tr>
+<tr><td> <code>\\</code>   </td><td> <code>key_backslash</code>   </td><td>         </td></tr>
+<tr><td> <code>←</code>    </td><td> <code>key_left</code>        </td><td> U+2190  </td></tr>
+<tr><td> <code>↑</code>    </td><td> <code>key_up</code>          </td><td> U+2191  </td></tr>
+<tr><td> <code>→</code>    </td><td> <code>key_right</code>       </td><td> U+2192  </td></tr>
+<tr><td> <code>↓</code>    </td><td> <code>key_down</code>        </td><td> U+2193  </td></tr>
+<tr><td> <code>◀</code>    </td><td> <code>key_home</code>        </td><td> U+25C0  </td></tr>
+<tr><td> <code>▶</code>    </td><td> <code>key_end</code>         </td><td> U+25B6  </td></tr>
+</tbody></table>
+<p>For example, these snippets type a pair of parentheses of quotation marks, and then position the cursor inside:</p>
+<pre><code>  - {snippet: &quot;()←&quot;, chord: &quot;()&quot;}
+  - {snippet: &quot;\&quot;\&quot;←&quot;, chord: &quot; \&quot;&quot;}
+</code></pre>
+<p>This snippet types out a C if-statement, and positions the cursor inside the parentheses:</p>
+<pre><code>  - {snippet: &quot;if () {\n}↑▶←←&quot;, chord: &quot; if&quot;} 
+</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
+                            <a rel="prev" href="config/mappings/word.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
 
                         
-                            <a rel="next" href="getting_started/installation.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="config/mappings/macro.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -158,9 +189,13 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
+                    <a href="config/mappings/word.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
 
                 
-                    <a href="getting_started/installation.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="config/mappings/macro.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

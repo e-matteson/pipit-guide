@@ -69,7 +69,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="getting_started/README.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="getting_started/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li><a href="getting_started/tutor.html"><strong aria-hidden="true">1.2.</strong> Typing Tutor</a></li><li><a href="getting_started/firmware.html"><strong aria-hidden="true">1.3.</strong> Firmware</a></li></ol></li><li><a href="config/README.html"><strong aria-hidden="true">2.</strong> Configuration</a></li><li><ol class="section"><li><a href="config/terminology.html"><strong aria-hidden="true">2.1.</strong> Terminology</a></li><li><a href="config/mappings/README.html"><strong aria-hidden="true">2.2.</strong> Mappings</a></li><li><ol class="section"><li><a href="config/mappings/plain.html"><strong aria-hidden="true">2.2.1.</strong> Plain</a></li><li><a href="config/mappings/word.html"><strong aria-hidden="true">2.2.2.</strong> Word</a></li><li><a href="config/mappings/macro.html" class="active"><strong aria-hidden="true">2.2.3.</strong> Macro</a></li><li><a href="config/mappings/command.html"><strong aria-hidden="true">2.2.4.</strong> Command</a></li></ol></li><li><a href="config/kmap.html"><strong aria-hidden="true">2.3.</strong> Kmap file format</a></li><li><a href="config/modes.html"><strong aria-hidden="true">2.4.</strong> Modes</a></li><li><a href="config/options.html"><strong aria-hidden="true">2.5.</strong> Options</a></li><li><a href="config/cheatsheet.html"><strong aria-hidden="true">2.6.</strong> Cheatsheet</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="getting_started/README.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="getting_started/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li><a href="getting_started/tutor.html"><strong aria-hidden="true">1.2.</strong> Typing Tutor</a></li><li><a href="getting_started/firmware.html"><strong aria-hidden="true">1.3.</strong> Firmware</a></li></ol></li><li><a href="config/README.html"><strong aria-hidden="true">2.</strong> Configuration</a></li><li><ol class="section"><li><a href="config/terminology.html"><strong aria-hidden="true">2.1.</strong> Terminology</a></li><li><a href="config/mappings/README.html"><strong aria-hidden="true">2.2.</strong> Mappings</a></li><li><ol class="section"><li><a href="config/mappings/plain.html"><strong aria-hidden="true">2.2.1.</strong> Plain</a></li><li><a href="config/mappings/word.html"><strong aria-hidden="true">2.2.2.</strong> Word</a></li><li><a href="config/mappings/snippet.html"><strong aria-hidden="true">2.2.3.</strong> Snippet</a></li><li><a href="config/mappings/macro.html" class="active"><strong aria-hidden="true">2.2.4.</strong> Macro</a></li><li><a href="config/mappings/command.html"><strong aria-hidden="true">2.2.5.</strong> Command</a></li></ol></li><li><a href="config/kmap.html"><strong aria-hidden="true">2.3.</strong> Kmap file format</a></li><li><a href="config/modes.html"><strong aria-hidden="true">2.4.</strong> Modes</a></li><li><a href="config/options.html"><strong aria-hidden="true">2.5.</strong> Options</a></li><li><a href="config/cheatsheet.html"><strong aria-hidden="true">2.6.</strong> Cheatsheet</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -139,38 +139,11 @@
 <li><code>macro</code> sequences can contain arbitrary modifiers, like <code>ctrl</code>.</li>
 <li><code>macro</code> sequences are not automatically prefixed with <code>space</code>.</li>
 <li><code>macro</code> chords are not automatically generated - you pick them yourself, and write them in a <code>.kmap</code> file.</li>
-<li><code>macro</code> chords cannot be modified by any kind of modifier. If you press a modifer at the same time, the chord will not be recognized as a <code>macro</code>.</li>
+<li><code>macro</code> chords cannot be modified by any kind of modifier. If you press a modifer at the same time, the chord will no longer be recognized as a <code>macro</code>.</li>
 </ul>
-<p>There are two different ways of writing a <code>macro's</code> key sequence in <code>settings.yaml</code>.</p>
-<a class="header" href="config/mappings/macro.html#simple-definition-method" id="simple-definition-method"><h2>Simple definition method</h2></a>
-<p>The first method is to simply write out the text as you want it to appear:</p>
-<pre><code>  macro_email: &quot;me@example.com&quot;
-
-  macro_hash_bang: &quot;#!/bin/bash&quot;
-</code></pre>
-<p>There are a few special symbols that can appear in the text and have the following meanings:</p>
-<table><thead><tr><th> symbol </th><th> key               </th><th> unicode </th></tr></thead><tbody>
-<tr><td> <code>\n</code>   </td><td> <code>key_enter</code>       </td><td>         </td></tr>
-<tr><td> <code>\t</code>   </td><td> <code>key_tab</code>         </td><td>         </td></tr>
-<tr><td> <code>\&quot;</code>   </td><td> <code>key_doublequote</code> </td><td>         </td></tr>
-<tr><td> <code>\\</code>   </td><td> <code>key_backslash</code>   </td><td>         </td></tr>
-<tr><td> <code>←</code>    </td><td> <code>key_left</code>        </td><td> U+2190  </td></tr>
-<tr><td> <code>↑</code>    </td><td> <code>key_up</code>          </td><td> U+2191  </td></tr>
-<tr><td> <code>→</code>    </td><td> <code>key_right</code>       </td><td> U+2192  </td></tr>
-<tr><td> <code>↓</code>    </td><td> <code>key_down</code>        </td><td> U+2193  </td></tr>
-<tr><td> <code>◀</code>    </td><td> <code>key_home</code>        </td><td> U+25C0  </td></tr>
-<tr><td> <code>▶</code>    </td><td> <code>key_end</code>         </td><td> U+25B6  </td></tr>
-</tbody></table>
-<p>Here are some examples of <code>macro</code> definitions that use special symbols:</p>
-<pre><code>  macro_vim_save: &quot;:w\n&quot;
-  macro_in_paren: &quot;()←&quot;
-  macro_in_doublequote: &quot;\&quot;\&quot;←&quot;
-  macro_if_c: &quot;if(){\n}↑▶←←&quot;
-
-</code></pre>
-<a class="header" href="config/mappings/macro.html#advanced-definition-method" id="advanced-definition-method"><h2>Advanced definition method</h2></a>
-<p>If you want a <code>macro</code> sequence to include modifiers like <code>ctrl</code> or other non-printing keys like
-<code>escape</code>, you'll need to use a second method, where you specify each keypress separately.</p>
+<a class="header" href="config/mappings/macro.html#macro-definitions" id="macro-definitions"><h2>Macro definitions</h2></a>
+<p>A <code>macro</code> sequence is defined as a list of keypresses.
+Each keypress is on a separate line and includes a <code>key</code> and/or a list of modifiers.</p>
 <pre><code>  macro_save_as:
     - {key: &quot;KEY_S&quot;, mods: [&quot;MODIFIERKEY_CTRL&quot;, &quot;MODIFIERKEY_SHIFT&quot;]}
 
@@ -188,14 +161,14 @@
     - {key: &quot;KEY_8&quot;, mods: [&quot;MODIFIERKEY_SHIFT&quot;]}
     - {key: &quot;KEY_E&quot;, mods: [&quot;MODIFIERKEY_SHIFT&quot;]}
 </code></pre>
-<p>Each keypress is on a separate line, in curly brackets, and includes a <code>key</code>, a <code>mod</code> list, or both. The <code>mod</code> list can contain the following names:</p>
+<p>The <code>mods</code> list can contain the following names:</p>
 <table><thead><tr><th> mods              </th><th>                                                           </th></tr></thead><tbody>
 <tr><td> MODIFIERKEY_CTRL  </td><td>                                                           </td></tr>
 <tr><td> MODIFIERKEY_SHIFT </td><td>                                                           </td></tr>
 <tr><td> MODIFIERKEY_ALT   </td><td>                                                           </td></tr>
 <tr><td> MODIFIERKEY_GUI   </td><td> A.K.A. windows key (❖), apple command key (⌘), or <code>super</code> </td></tr>
 </tbody></table>
-<p>and <code>key</code> can be any of the following names:</p>
+<p>The <code>key</code> can be any of the following names:</p>
 <table><thead><tr><th>                     </th><th>                    </th><th>                     </th><th>                 </th></tr></thead><tbody>
 <tr><td> KEY_A               </td><td> KEY_B              </td><td> KEY_C            </td><td> KEY_D           </td></tr>
 <tr><td> KEY_E               </td><td> KEY_F            </td><td> KEY_G              </td><td> KEY_H           </td></tr>
@@ -228,7 +201,7 @@
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="config/mappings/word.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="config/mappings/snippet.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
@@ -246,7 +219,7 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="config/mappings/word.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="config/mappings/snippet.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 

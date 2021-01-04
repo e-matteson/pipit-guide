@@ -69,7 +69,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="getting_started/README.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="getting_started/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li><a href="getting_started/tutor.html"><strong aria-hidden="true">1.2.</strong> Typing Tutor</a></li><li><a href="getting_started/firmware.html"><strong aria-hidden="true">1.3.</strong> Firmware</a></li></ol></li><li><a href="config/README.html"><strong aria-hidden="true">2.</strong> Configuration</a></li><li><ol class="section"><li><a href="config/terminology.html"><strong aria-hidden="true">2.1.</strong> Terminology</a></li><li><a href="config/mappings/README.html"><strong aria-hidden="true">2.2.</strong> Mappings</a></li><li><ol class="section"><li><a href="config/mappings/plain.html"><strong aria-hidden="true">2.2.1.</strong> Plain</a></li><li><a href="config/mappings/word.html"><strong aria-hidden="true">2.2.2.</strong> Word</a></li><li><a href="config/mappings/macro.html"><strong aria-hidden="true">2.2.3.</strong> Macro</a></li><li><a href="config/mappings/command.html"><strong aria-hidden="true">2.2.4.</strong> Command</a></li></ol></li><li><a href="config/kmap.html"><strong aria-hidden="true">2.3.</strong> Kmap file format</a></li><li><a href="config/modes.html"><strong aria-hidden="true">2.4.</strong> Modes</a></li><li><a href="config/options.html"><strong aria-hidden="true">2.5.</strong> Options</a></li><li><a href="config/cheatsheet.html"><strong aria-hidden="true">2.6.</strong> Cheatsheet</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="getting_started/README.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="getting_started/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li><a href="getting_started/tutor.html"><strong aria-hidden="true">1.2.</strong> Typing Tutor</a></li><li><a href="getting_started/firmware.html"><strong aria-hidden="true">1.3.</strong> Firmware</a></li></ol></li><li><a href="config/README.html"><strong aria-hidden="true">2.</strong> Configuration</a></li><li><ol class="section"><li><a href="config/terminology.html"><strong aria-hidden="true">2.1.</strong> Terminology</a></li><li><a href="config/mappings/README.html"><strong aria-hidden="true">2.2.</strong> Mappings</a></li><li><ol class="section"><li><a href="config/mappings/plain.html"><strong aria-hidden="true">2.2.1.</strong> Plain</a></li><li><a href="config/mappings/word.html"><strong aria-hidden="true">2.2.2.</strong> Word</a></li><li><a href="config/mappings/snippet.html"><strong aria-hidden="true">2.2.3.</strong> Snippet</a></li><li><a href="config/mappings/macro.html"><strong aria-hidden="true">2.2.4.</strong> Macro</a></li><li><a href="config/mappings/command.html"><strong aria-hidden="true">2.2.5.</strong> Command</a></li></ol></li><li><a href="config/kmap.html"><strong aria-hidden="true">2.3.</strong> Kmap file format</a></li><li><a href="config/modes.html"><strong aria-hidden="true">2.4.</strong> Modes</a></li><li><a href="config/options.html"><strong aria-hidden="true">2.5.</strong> Options</a></li><li><a href="config/cheatsheet.html"><strong aria-hidden="true">2.6.</strong> Cheatsheet</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -156,7 +156,7 @@
 </li>
 </ol>
 <a class="header" href="print.html#arduino-ide" id="arduino-ide"><h2>Arduino IDE</h2></a>
-<p>The Arduino IDE allows you to re-program the microcontroller inside the keyboard, updating the firmware configuration.</p>
+<p>The Arduino IDE allows you to re-program the microcontroller inside the keyboard, updating the firmware and changing the configuration.</p>
 <ol>
 <li>
 <p>Install the <a href="https://www.arduino.cc/en/Main/Software">Arduino IDE</a>. You must install the offline IDE version, instead of using the online &quot;Arduino Create&quot; tool.</p>
@@ -165,12 +165,12 @@
 <p>Install the <a href="https://www.pjrc.com/teensy/teensyduino.html">Teensyduino</a> add-on to the Arduino IDE, to support the <code>TeensyLC</code> board used in the keyboard.</p>
 </li>
 </ol>
-<!-- * If your keyboard contains a `Teensy LC` microcontroller (USB keyboard support only): -->
-<!-- * If your keyboard contains an `Adafruit Feather BLE M0` microcontroller (bluetooth keyboard support): install SAMD support through the arduino boards manager, according to [adafruit's instructions](https://learn.adafruit.com/adafruit-feather-m0-bluefruit-le/using-with-arduino-ide). -->
 <a class="header" href="print.html#typing-tutor" id="typing-tutor"><h1>Typing Tutor</h1></a>
-<p>The typing tutor teaches you the layout of the keyboard. It gives you a line of text to copy, and guides you with a hint showing how to type the next letter.</p>
-<p><img src="assets/single.png" width="500" /></p>
+<p>The typing tutor teaches you the layout of the keyboard. It gives you a line of text to copy and guides you with a hint showing how to type the next letter.</p>
+<p><img src="assets/quickbrownfox.png" width="500" /></p>
 <p>As you learn each letter, the tutor will stop showing you hints for that letter. If you mis-type a letter, the hint for the correct letter will reappear in blue, and the location of the incorrect letter you <em>actually</em> pressed will appear in red.</p>
+<p>The tutor also lets you practice chording whole words. It can present random words from the dictionary and give you a hint showing which switches make up each word's chord.</p>
+<p><img src="assets/random_words.jpeg" width="500" /></p>
 <a class="header" href="print.html#running-the-tutor" id="running-the-tutor"><h2>Running the tutor</h2></a>
 <p>From the <code>pipit-keyboard</code> directory, enter:</p>
 <pre><code>$ cargo run -- -t
@@ -178,22 +178,25 @@
 <p>This will start the tutor using the default <code>settings/settings.yaml</code> file. To use a different file instead, specify it at the end:</p>
 <pre><code>$ cargo run -- -t settings/settings_evan.yaml
 </code></pre>
-<p>The tutor will open to a menu. You can use arrow keys to navigate between items in a menu or buttons in a dialog box, and <code>enter</code> to select one. You <em>might</em> be able to click on menu items and buttons as well, but this feature may not be supported by your terminal.</p>
+<p>The tutor will open to a menu.
+You can use arrow keys to navigate between items in a menu or buttons in a dialog box, and <code>enter</code> to select one.
+You <em>might</em> be able to click on menu items and buttons as well, but this feature is not supported by all terminal emulators.</p>
 <p>You can quit the tutor at any time by typing <code>ctrl-c</code>, or by selecting <code>Quit</code> in the main menu.</p>
 <a class="header" href="print.html#options" id="options"><h2>Options</h2></a>
 <p>These options are available in the <code>Options</code> menu. All changes will be remembered next time you start the tutor.</p>
 <a class="header" href="print.html#mode" id="mode"><h3>Mode</h3></a>
 <p>By default, the tutor will assume your keyboard is in <code>default_mode</code> and use that layout to decide where to place the hints. If you want to practice a different <a href="config/modes.html">mode</a>, you can press <code>enter</code> to show a list of all the modes found in the settings file, and then select the mode you want to use.</p>
-<a class="header" href="print.html#hint-difficulty" id="hint-difficulty"><h3>Hint Difficulty</h3></a>
+<a class="header" href="print.html#hint-difficulty" id="hint-difficulty"><h3>Hint difficulty</h3></a>
 <p>This controls how quickly the tutor will stop showing you hints for letters you've learned. Use the left and right arrows to move the slider. Left is easier and right is more difficult. If the slider is all the way to the right, the tutor will only show you a hint once, the first time the letter appears.</p>
-<a class="header" href="print.html#allow-mistakes" id="allow-mistakes"><h3>Allow Mistakes</h3></a>
+<a class="header" href="print.html#show-persistent-hints-for-the-lessons-new-letters" id="show-persistent-hints-for-the-lessons-new-letters"><h3>Show persistent hints for the lesson's new letters</h3></a>
+<p>If selected, always show hints for the letters that are being newly introduced in this lesson, regardless of the hint difficulty setting.</p>
+<a class="header" href="print.html#allow-mistakes" id="allow-mistakes"><h3>Allow mistakes</h3></a>
 <p>By default, the tutor won't let you continue after typing a wrong letter. The wrong letter won't appear on the screen, and the cursor won't move until you try again and type the correct letter. This is helpful when you're first learning the layout, but it can become frustrating when you're typing quickly or practicing chording whole words. Turning on the <code>Allow Mistakes</code> option means that incorrect letters will appear (in red) and you can continue typing past them. After a mistake, the tutor will use a yellow hint to show you where <code>backspace</code> is, in case you want to correct your mistake.</p>
 <!-- ## Troubleshooting -->
-<!-- The tutor reads the settings file to determine where to place the hints for each letter. If you've changed the settings without loading them onto the keyboard, then the tutor's hints might not match the actual layout of your keyboard. -->
 <!--    cargo run -- -t 2>tutorlog.txt; cat tutorlog.txt -->
 <hr />
 <a class="header" href="print.html#note" id="note"><h1>Note:</h1></a>
-<p>The tutor has no way to know which physical switches you're actually pressing on the keyboard. All it knows are which letters have been typed. If you mash an unused combination of many switches that doesn't actually type anything, the tutor won't display any red hints. If you accidentally chord a whole word, it will only display a red hint for the last letter in that word.</p>
+<p>The tutor has no way of knowing which physical switches you're actually pressing on the keyboard. It only knows which letters the computer received. If you mash an unused combination of many switches that doesn't actually type anything, the tutor won't display any red hints. If you accidentally chord a whole word, it will only display a red hint for the last letter in that word.</p>
 <p>Similarly, the tutor can't know the true layout of your keyboard, it can only assume the layout matches the settings file you gave it. If you update the settings file without re-loading the new keyboard firmware, or you switch the keyboard's mode without switching to the same mode in the tutor's options menu, then the hints will be incorrect.</p>
 <hr />
 <a class="header" href="print.html#configuring-and-loading-firmware" id="configuring-and-loading-firmware"><h1>Configuring and loading firmware</h1></a>
@@ -270,19 +273,22 @@
 <tr><td> <code>word_modifier</code>    </td><td> A chord that's used to modify a word: <code>mod_capital</code>, <code>mod_nospace</code>, etc.                                                                                                                                                                                                                      </td></tr>
 <tr><td> anagrams           </td><td> Two words that would be assigned the same chord by default, causing ambiguity. This can happen because they contain the same set of letters (<code>&quot;the&quot;</code>/<code>&quot;teeth&quot;</code>), or because their letters have overlapping chords: if pressing <code>m</code> + <code>p</code> produces <code>z</code>, then <code>&quot;map&quot;</code> and <code>&quot;zap&quot;</code> are anagrams. </td></tr>
 <tr><td> <code>anagram_modifier</code> </td><td> A chord that's used to select one particular anagram of a word: <code>mod_anagram1</code>, <code>mod_anagram2</code>, etc.                                                                                                                                                                                          </td></tr>
-<tr><td> <code>.kmap</code> file       </td><td> A file that lets you describe which switches are in each chord.                                                                                                                                                                                                                               </td></tr>
+<tr><td> <code>.kmap</code> file       </td><td> Where you can specify which switches are in a chord, using an ascii art representation of the keyboard.                                                                                                                                                  </td></tr>
 <tr><td> mode               </td><td> A collection of <code>.kmap</code> files used for looking up which sequence to send when a chord is pressed. You can switch between modes while typing (for example, to switch to a one-handed layout).                                                                                                  </td></tr>
 </tbody></table>
 <a class="header" href="print.html#types-of-mappings" id="types-of-mappings"><h1>Types of mappings</h1></a>
-<p>There are four different types of mappings between chords and key sequences. Each is used for a different purpose and reacts differently when modifier chords are pressed at the same time.</p>
-<p>Each mapping is given a unique name, like <code>key_a</code>, <code>mod_shift</code>, or <code>macro_email</code>. This name is used both when setting its key sequence (in <code>settings.yaml</code>) and setting its chord (in a <code>.kmap</code> file).</p>
+<p>There are five different types of mappings between chords and key sequences. Each is used for a different purpose and reacts differently when modifier chords are pressed at the same time.</p>
+<!--  TODO confusing because some names are implicit -->
+<!-- Each mapping is given a unique name, like `key_a`, `mod_shift`, or `macro_save_as`. This name is used both when setting its key sequence (in `settings.yaml`) and setting its chord (in a `.kmap` file).  -->
 <!-- TODO should plain_modifier be a 5th type? -->
 <a class="header" href="print.html#plain_key-and-plain_modifier" id="plain_key-and-plain_modifier"><h1>plain_key and plain_modifier</h1></a>
 <p>The <code>plain_key</code> group includes most of the keys you'd typically find on a keyboard: letters, numbers, arrow keys, <code>backspace</code>, and so on. Their names all start with <code>key_</code> (like <code>key_a</code>).</p>
 <p>Modifiers like <code>ctrl</code> and <code>shift</code>, however, are in a separate group - they're called <code>plain_modifiers</code>, and their names start with <code>mod_</code> (like <code>mod_shift</code>).</p>
 <p><code>plain_keys</code> can be modified by any <code>plain_modifier</code>. This means that if you press the chords for <code>key_a</code> and <code>mod_shift</code> at the same time, the keyboard will recognize them both and send capital <code>A</code>.</p>
 <p>You should never need to change the sequences for <code>plain_key</code> mappings. They're already defined in <code>settings.yaml</code>, in terms of the all-caps key names used internally by the keyboard firmware (like <code>KEY_A</code>).</p>
-<p>You can edit the chords in a <code>.kmap</code> file if you want to re-arrange a mode's layout, or create a new mode. Note that if the mode uses words, changing <code>plain_key</code> chords will also affect the chords for <code>word</code> mappings. See the <a href="print.html#word">word</a> section for more details.</p>
+<p>You can edit the chords in a <code>.kmap</code> file if you want to re-arrange a mode's layout or create a new mode.
+Note that if the mode uses words, changing <code>plain_key</code> chords will also affect the chords for <code>word</code> mappings.
+See the <a href="print.html#word">word</a> section for more details.</p>
 <!-- TODO don't overlap key and mod chord definitions -->
 <a class="header" href="print.html#word" id="word"><h1>Word</h1></a>
 <a class="header" href="print.html#word-definitions" id="word-definitions"><h2>Word definitions</h2></a>
@@ -291,23 +297,30 @@
 <pre><code>- {word: &quot;the&quot;}
 </code></pre>
 <p>By default, the chord will be generated by combining the existing <code>plain_key</code> chords mapped to each letter in the word. So in this example, the chord for <code>the</code> consists of the chords for <code>key_t</code>, <code>key_h</code>, and <code>key_e</code> pressed all at once.</p>
-<p>This chord-generation approach often causes conflicts, when multiple words would be assigned the same chord - like <code>&quot;the&quot;</code>, <code>&quot;teeth&quot;</code>, and <code>&quot;thee&quot;</code>. We call these conflicting words <code>anagrams</code>, and use <code>anagram_modifiers</code> to select which one we want. You can add up to 15 anagrams for the same chord, and order them in the dictionary such that the words you use most often come first. We can define <code>&quot;the&quot;</code>, <code>&quot;teeth&quot;</code> and <code>&quot;thee&quot;</code> like this:</p>
+<p>This chord-generation approach causes conflicts when multiple words would be assigned the same chord - like <code>&quot;the&quot;</code>, <code>&quot;teeth&quot;</code>, and <code>&quot;thee&quot;</code>.
+We call these conflicting words <code>anagrams</code>, and use <code>anagram_modifiers</code> to select which one we want.
+You can add up to 15 anagrams for the same chord, and order them in the dictionary such that the words you use most often come first.
+We can define <code>&quot;the&quot;</code>, <code>&quot;teeth&quot;</code> and <code>&quot;thee&quot;</code> like this:</p>
 <pre><code>- {word: &quot;the&quot;}
 - {word: &quot;teeth&quot;, anagram: 1}
 - {word: &quot;thee&quot;, anagram: 2}
 </code></pre>
-<p>Now you can type <code>&quot;teeth&quot;</code> by pressing the chords for <code>key_t</code>, <code>key_h</code>, <code>key_e</code>, and <code>mod_anagram1</code> all at once, or type <code>&quot;thee&quot;</code> by pressing them with <code>mod_anagram2</code>. Alternatively, if you forgot to use the correct <code>anagram_modifier</code>, you can press the <code>command_cycle_word</code> chord to delete the last word and replace it with the next anagram in the list. So if you had just typed <code>&quot;the&quot;</code>, pressing <code>command_cycle_word</code> once would replace it with <code>&quot;teeth&quot;</code>, and pressing it again would replace that with <code>&quot;thee&quot;</code>.</p>
+<p>Now you can type <code>&quot;teeth&quot;</code> by pressing the chords for <code>key_t</code>, <code>key_h</code>, <code>key_e</code>, and <code>mod_anagram1</code> all at once, or type <code>&quot;thee&quot;</code> by pressing <code>mod_anagram2</code> instead of <code>mod_anagram1</code>.
+Alternatively, if you forgot to use the correct <code>anagram_modifier</code>, you can press the <code>command_cycle_word</code> chord to delete the last word and replace it with the next anagram in the list.
+So if you had just typed <code>&quot;the&quot;</code>, pressing <code>command_cycle_word</code> once would replace it with <code>&quot;teeth&quot;</code>, and pressing it again would replace that with <code>&quot;thee&quot;</code>.</p>
 <a class="header" href="print.html#overlapping-letters" id="overlapping-letters"><h2>Overlapping letters</h2></a>
 <p>Anagram conflicts can also happen if two words have different letters, but the chords for those letters overlap. For example, if pressing <code>m</code> + <code>p</code> produces <code>z</code>, then <code>&quot;map&quot;</code> and <code>&quot;zap&quot;</code> are anagrams of each other. When you press all of those switches at once, the keyboard can't know whether you wanted to type an <code>m</code> and a <code>p</code>, or just a <code>z</code>, or some combination of the three.</p>
-<p>This also means that if you rearrange individual letters in the keymap, the anagrams will change, and you'll need to edit the anagram numbers in the dictionary list. The <code>pipit-config</code> tool will guide you in this process by pointing out both new anagram conflicts and words that have unnecessarily high anagram numbers left over from old conflicts.</p>
+<p>This also means that if you rearrange individual letters in the keymap, the anagrams will change, and you'll need to edit the anagram numbers in the dictionary list. The <code>pipit-config</code> tool will guide you in this process by pointing out both new anagram conflicts and words that have unnecessarily high anagram numbers left over from previous conflicts.</p>
 <a class="header" href="print.html#custom-chords-and-briefs" id="custom-chords-and-briefs"><h2>Custom chords and briefs</h2></a>
 <p>You can also set custom chords for words - like a stenographer's brief. For example, <code>&quot;different&quot;</code> is a common word that, by default, requires an awkward combination of 7 switches (for <code>d</code>, <code>i</code>, <code>f</code>, <code>e</code>, <code>r</code>, <code>n</code>, and <code>t</code>). The following definition lets you to type it just by pressing <code>d</code>, <code>i</code>, and <code>f</code>, instead:</p>
 <pre><code>- {word: &quot;different&quot;, chord: &quot;dif&quot;}
 </code></pre>
 <p>This feature is also useful for adding longer phrases that you use frequently:</p>
 <pre><code>- {word: &quot;as far as I know&quot;, chord: &quot;afi&quot;}
+- {word: &quot;sounds good&quot;, chord: &quot;sg&quot;}
+- {word: &quot;thank you for&quot;, chord: &quot;tyf&quot;}
 </code></pre>
-<a class="header" href="print.html#modifiers" id="modifiers"><h3>Modifiers</h3></a>
+<a class="header" href="print.html#modifiers" id="modifiers"><h2>Modifiers</h2></a>
 <p>Word chords can be modified only by <code>word_modifiers</code> and <code>anagram_modifiers</code>.</p>
 <p>By default, words are automatically preceded by a <code>space</code>, and they're typed out in the same case as they're written in the dictionary (so usually, all lowercase). If one or more <code>word_modifiers</code> are pressed at the same time as the word's chord, they will change that behavior in the following ways:</p>
 <table><thead><tr><th> modifier       </th><th> effect                                                                                                                                                                                 </th></tr></thead><tbody>
@@ -324,7 +337,7 @@
 <tr><td> <code>command_cycle_capital</code>     </td><td> Toggle whether the word's first letter is capitalized.      </td></tr>
 <tr><td> <code>command_cycle_nospace</code>     </td><td> Toggle whether the word is preceded by a space.             </td></tr>
 <tr><td> <code>command_shorten_last_word</code> </td><td> Go back and shorten the word before the one you just typed. </td></tr>
-<tr><td> <code>command_cycle_word</code>        </td><td> Cycle between all possible anagrams of a word. This lets you reach higher anagram numbers than you directly type using just <code>mod_anagram1</code> or <code>mod_anagram2</code>. </td></tr>
+<tr><td> <code>command_cycle_word</code>        </td><td> Cycle between all possible anagrams of a word. This lets you reach higher anagram numbers than you could directly type using just <code>mod_anagram1</code> or <code>mod_anagram2</code>. </td></tr>
 </tbody></table>
 <a class="header" href="print.html#word-movement-commands" id="word-movement-commands"><h3>Word movement commands</h3></a>
 <p>The keyboard stores a history of the last few words you typed, and lets you move between them, delete them, or edit them (with the cycling commands in the previous section).</p>
@@ -353,23 +366,25 @@
 <p><code>command_right_limit</code> ⮕ <code>Coffee with cream and sugar|</code></p>
 </li>
 </ol>
-<p>Note that the keyboard can't have perfect knowledge of what's on your screen, so the stored history can become invalid if you, for example, use text editor shortcuts, or use the mouse to re-position the cursor. The history is automatically erased whenever you type keys like <code>mod_ctrl</code> that are likely to invalidate the history. There's nothing we can do to prevent mouse movement from invalidating the history, though, so don't try to use history commands after mouse movements. Holding a key long enough to trigger the host computer's key repeat will also invalidate the history.</p>
-<a class="header" href="print.html#macro" id="macro"><h1>Macro</h1></a>
-<p><code>macros</code> are similar to <code>words</code>, except that:</p>
+<p>Note that the keyboard can't have perfect knowledge of what's on your screen, so the stored history can become invalid if you, for example:</p>
 <ul>
-<li><code>macro</code> sequences can contain arbitrary modifiers, like <code>ctrl</code>.</li>
-<li><code>macro</code> sequences are not automatically prefixed with <code>space</code>.</li>
-<li><code>macro</code> chords are not automatically generated - you pick them yourself, and write them in a <code>.kmap</code> file.</li>
-<li><code>macro</code> chords cannot be modified by any kind of modifier. If you press a modifer at the same time, the chord will not be recognized as a <code>macro</code>.</li>
+<li>use text editor shortcuts or use the mouse to re-position the cursor</li>
+<li>hold a switch down for long enough to trigger the host computer's key repeat</li>
 </ul>
-<p>There are two different ways of writing a <code>macro's</code> key sequence in <code>settings.yaml</code>.</p>
-<a class="header" href="print.html#simple-definition-method" id="simple-definition-method"><h2>Simple definition method</h2></a>
-<p>The first method is to simply write out the text as you want it to appear:</p>
-<pre><code>  macro_email: &quot;me@example.com&quot;
-
-  macro_hash_bang: &quot;#!/bin/bash&quot;
+<p>The history is automatically erased whenever you type keys like <code>mod_ctrl</code>, since they're likely to be part of shortcuts that would invalidate the history. But the keyboard can't detect other actions like mouse movements, so be aware that history commands won't work correctly in those situations.</p>
+<a class="header" href="print.html#snippet" id="snippet"><h1>Snippet</h1></a>
+<!-- Like words, snippets let you send a sequence of keys by pressing a chord. -->
+Snippets are similar to words, except they aren't preceded by a space and they can't be modified by `word_modifiers` or `anagram_modifiers` (or any other type of modifier). Here's the definition for a snippet that will type a smiley face when you press `(` and `:` at the same time:
+<pre><code>  - {snippet: &quot;(:&quot;}
 </code></pre>
-<p>There are a few special symbols that can appear in the text and have the following meanings:</p>
+<p>It's better to define this as a snippet than as a word because it wouldn't make sense to capitalize a smiley face.
+If we had defined it as a word, pressing <code>mod_capital</code> at the same time would produce <code>9:</code>, which is never what we want.</p>
+<p>By default, the snippet's chord will be generated by combining the existing <code>plain_key</code> chords mapped to every character in the snippet's sequence. However, it's usually more useful to specify a different, simpler chord. This snippet will type your email address when you press <code>space</code>, <code>m</code>, and <code>e</code> at the same time:</p>
+<pre><code>  - {snippet: &quot;me@example.com&quot;, chord: &quot; me&quot;}
+</code></pre>
+<!-- If you don't want the snippet's chord to depend on the chords assigned to `space`, `m`, and `e`, consider using a [macro](#macro) instead of a snippet. -->
+<a class="header" href="print.html#special-symbols" id="special-symbols"><h2>Special symbols</h2></a>
+<p>These special symbols can appear in a snippet definition to represent keys that can't be displayed normally:</p>
 <table><thead><tr><th> symbol </th><th> key               </th><th> unicode </th></tr></thead><tbody>
 <tr><td> <code>\n</code>   </td><td> <code>key_enter</code>       </td><td>         </td></tr>
 <tr><td> <code>\t</code>   </td><td> <code>key_tab</code>         </td><td>         </td></tr>
@@ -382,16 +397,24 @@
 <tr><td> <code>◀</code>    </td><td> <code>key_home</code>        </td><td> U+25C0  </td></tr>
 <tr><td> <code>▶</code>    </td><td> <code>key_end</code>         </td><td> U+25B6  </td></tr>
 </tbody></table>
-<p>Here are some examples of <code>macro</code> definitions that use special symbols:</p>
-<pre><code>  macro_vim_save: &quot;:w\n&quot;
-  macro_in_paren: &quot;()←&quot;
-  macro_in_doublequote: &quot;\&quot;\&quot;←&quot;
-  macro_if_c: &quot;if(){\n}↑▶←←&quot;
-
+<p>For example, these snippets type a pair of parentheses of quotation marks, and then position the cursor inside:</p>
+<pre><code>  - {snippet: &quot;()←&quot;, chord: &quot;()&quot;}
+  - {snippet: &quot;\&quot;\&quot;←&quot;, chord: &quot; \&quot;&quot;}
 </code></pre>
-<a class="header" href="print.html#advanced-definition-method" id="advanced-definition-method"><h2>Advanced definition method</h2></a>
-<p>If you want a <code>macro</code> sequence to include modifiers like <code>ctrl</code> or other non-printing keys like
-<code>escape</code>, you'll need to use a second method, where you specify each keypress separately.</p>
+<p>This snippet types out a C if-statement, and positions the cursor inside the parentheses:</p>
+<pre><code>  - {snippet: &quot;if () {\n}↑▶←←&quot;, chord: &quot; if&quot;} 
+</code></pre>
+<a class="header" href="print.html#macro" id="macro"><h1>Macro</h1></a>
+<p><code>macros</code> are similar to <code>words</code>, except that:</p>
+<ul>
+<li><code>macro</code> sequences can contain arbitrary modifiers, like <code>ctrl</code>.</li>
+<li><code>macro</code> sequences are not automatically prefixed with <code>space</code>.</li>
+<li><code>macro</code> chords are not automatically generated - you pick them yourself, and write them in a <code>.kmap</code> file.</li>
+<li><code>macro</code> chords cannot be modified by any kind of modifier. If you press a modifer at the same time, the chord will no longer be recognized as a <code>macro</code>.</li>
+</ul>
+<a class="header" href="print.html#macro-definitions" id="macro-definitions"><h2>Macro definitions</h2></a>
+<p>A <code>macro</code> sequence is defined as a list of keypresses.
+Each keypress is on a separate line and includes a <code>key</code> and/or a list of modifiers.</p>
 <pre><code>  macro_save_as:
     - {key: &quot;KEY_S&quot;, mods: [&quot;MODIFIERKEY_CTRL&quot;, &quot;MODIFIERKEY_SHIFT&quot;]}
 
@@ -409,14 +432,14 @@
     - {key: &quot;KEY_8&quot;, mods: [&quot;MODIFIERKEY_SHIFT&quot;]}
     - {key: &quot;KEY_E&quot;, mods: [&quot;MODIFIERKEY_SHIFT&quot;]}
 </code></pre>
-<p>Each keypress is on a separate line, in curly brackets, and includes a <code>key</code>, a <code>mod</code> list, or both. The <code>mod</code> list can contain the following names:</p>
+<p>The <code>mods</code> list can contain the following names:</p>
 <table><thead><tr><th> mods              </th><th>                                                           </th></tr></thead><tbody>
 <tr><td> MODIFIERKEY_CTRL  </td><td>                                                           </td></tr>
 <tr><td> MODIFIERKEY_SHIFT </td><td>                                                           </td></tr>
 <tr><td> MODIFIERKEY_ALT   </td><td>                                                           </td></tr>
 <tr><td> MODIFIERKEY_GUI   </td><td> A.K.A. windows key (❖), apple command key (⌘), or <code>super</code> </td></tr>
 </tbody></table>
-<p>and <code>key</code> can be any of the following names:</p>
+<p>The <code>key</code> can be any of the following names:</p>
 <table><thead><tr><th>                     </th><th>                    </th><th>                     </th><th>                 </th></tr></thead><tbody>
 <tr><td> KEY_A               </td><td> KEY_B              </td><td> KEY_C            </td><td> KEY_D           </td></tr>
 <tr><td> KEY_E               </td><td> KEY_F            </td><td> KEY_G              </td><td> KEY_H           </td></tr>
@@ -444,7 +467,10 @@
 <tr><td> KEYPAD_8         </td><td> KEYPAD_9         </td><td> KEYPAD_0           </td><td> KEYPAD_PERIOD   </td></tr>
 </tbody></table>
 <a class="header" href="print.html#command" id="command"><h1>Command</h1></a>
-<p>Commands are used for calling functions in the firmware, like to delete the last word, or switch to a different mode. The chord is defined in a <code>.kmap</code> file, the command name is defined in <code>settings.yaml</code>, and the behavior is defined in the <code>doCommand()</code> function at the top of <code>pipit-firmware/Pipit.cpp</code>.</p>
+<p>Commands are used for calling functions in the firmware, like to delete the last word or switch to a different mode.
+The command name is defined in <code>settings.yaml</code>, the chord is defined in a <code>.kmap</code> file, and the behavior is defined in the <code>doCommand()</code> function in <code>pipit-firmware/Pipit.cpp</code>.</p>
+<p>The commands used for switching modes, however, are special cases.
+Their names are automatically defined and do not appear in <code>settings.yaml</code>. See the section on <a href="config/modes.html">modes</a> for more details.</p>
 <p>Command chords cannot be modified by any kind of modifier.</p>
 <a class="header" href="print.html#kmap-file-format" id="kmap-file-format"><h1>Kmap file format</h1></a>
 <p>A <code>.kmap</code> file contains blocks of characters that visually represent chords. In each block, the first line gives the name of a mapping (as defined in <code>settings.yaml</code>). The following lines show which switches must be pressed to trigger that mapping. The <code>*</code> symbols represent pressed switches and the <code>.</code> symbols represent un-pressed switches.</p>
@@ -495,7 +521,7 @@ key_0            key_2          key_4
     gaming: true
 </code></pre>
 <a class="header" href="print.html#keymaps" id="keymaps"><h3>Keymaps</h3></a>
-<p>The first piece of information you to need to give about a mode is which keymap file(s) it uses. All modes draw from the same set of sequences defined in the settings file. The difference between modes is in which chord (if any) they assign to each of those sequences.</p>
+<p>When describing a mode, the first piece of information you need to give is which keymap file(s) it uses. All modes draw from the same set of sequences defined in the settings file. The difference between modes is in which chord (if any) they assign to each of those sequences.</p>
 <p>If you list multiple keymaps for a mode, like in the <code>windows_mode</code> example, keymaps higher up in the list will override the ones below.</p>
 <pre><code>  windows_mode:
     keymaps:
@@ -512,20 +538,13 @@ key_0            key_2          key_4
       - {file: &quot;settings/keymaps/gaming_test.kmap&quot;}
     gaming: true
 </code></pre>
-<p>This changes how the keyboard handles multiple presses. Chording keyboards don't normally work well for gaming. If you're using <code>wasd</code> keys for movement, you'd want to be able to move diagonally by pressing <code>w</code> and <code>d</code> together. This keyboard, however, would treat that combination as a totally different chord, and unless you had manually defined that chord, it would just send nothing. Setting <code>gaming: true</code> fixes this: pressing <code>w</code> and <code>d</code> will send both <code>w</code> and <code>d</code> at the same time, like a conventional keyboard.</p>
+<p>This changes how the keyboard handles multiple presses. Chording keyboards don't normally work well for gaming. If you're using <code>wasd</code> keys for movement, you'd want to be able to move diagonally by pressing <code>w</code> and <code>d</code> together. A chording keyboard, however, would treat that combination as an entirely new chord, and unless you had manually defined that chord already, it would just send nothing. Setting <code>gaming: true</code> fixes this: pressing <code>w</code> and <code>d</code> will send both <code>w</code> and <code>d</code> at the same time, like a conventional keyboard.</p>
 <p>This of course means that all the chords used in a gaming mode can only contain a single switch. Multiple-switch chords won't be detected.</p>
 <!-- Kmap files specify which chord you press to type each plain_key, macro, or command.  -->
 <!-- If `use_words` is true, use this kmap to generate chords for all the words in the dictionary. -->
 <!-- Each mode can use multiple keymap files. If the same chord appears in more than 1 keymap, the last keymap takes priority. This is useful if you want to override just a few chords, like to change apple shortcuts to windows shortcuts when you switch between computers. -->
 <a class="header" href="print.html#switching-modes" id="switching-modes"><h2>Switching modes</h2></a>
-<p>The keyboard will always start in <code>default_mode</code> after powering on. You switch to a mode using a <a href="config/mappings/command">command</a>, like <code>command_windows_mode</code> or <code>command_default_mode</code>.</p>
-<p>If you create a new mode, you'll also have to manually create a command for switching to that mode. First, if your mode is called <code>my_new_mode</code>, give your command a name like <code>command_my_new_mode</code>, and add the name to the <code>commands:</code> list in <code>settings.yaml</code>. Next, assign it a chord in whichever keymap files you want to be able to access this mode from.</p>
-<p>Finally, edit the firmware to tell it what to do when this command is triggered. Open <code>pipit-firmware/Pipit.cpp</code>, and scroll down to where it says <code>/**** Add cases for new commands here! ****/</code>, somewhere around line 18. Add a new block of lines that looks like this, replacing the command name and mode name with your own, but in ALL CAPS:</p>
-<pre><code>case conf::command_enum::COMMAND_MY_NEW_MODE:
-  mode = conf::mode_enum::MY_NEW_MODE;
-  break;
-</code></pre>
-<p>In the future, this process will be simplified, so that you won't need to edit the firmware to create a new mode.</p>
+<p>The keyboard will always start in the mode named <code>default_mode</code> after powering on. You switch to a mode using a <a href="config/mappings/command">command</a>, like <code>command_switch_to_windows_mode</code> or <code>command_switch_to_default_mode</code>. These commands are special: unlike others, they're not written in the <code>commands:</code> list in <code>settings.yaml</code>. Instead, they're automatically created for each mode, by prepending <code>command_switch_to_</code> to the mode name. The chords for these commands are defined in <code>.kmap</code> files, as usual.</p>
 <a class="header" href="print.html#options-1" id="options-1"><h1>Options</h1></a>
 <p>The following options are available in <code>settings.yaml</code>.</p>
 <a class="header" href="print.html#timing-options" id="timing-options"><h2>Timing options</h2></a>
@@ -533,20 +552,11 @@ key_0            key_2          key_4
 <table><thead><tr><th> Option                       </th><th> Description                                                                                                                                                                                                                                                                </th><th> Required?                                     </th><th> Value                         </th></tr></thead><tbody>
 <tr><td> <code>chord_delay</code>                </td><td> How quickly all the switches in a chord must be pressed for them to be recognized as a single chord. Increase it if you often fail to press whole chords at once. Decrease it if you often type too quickly and accidentally combine separate presses into a single chord. </td><td> Required                                      </td><td> Milliseconds                  </td></tr>
 <tr><td> <code>held_delay</code>                 </td><td> How long a switch must be held down before it will be reused in future chords.                                                                                                                                                                                             </td><td> Required                                      </td><td> Milliseconds                  </td></tr>
-<tr><td> <code>debounce_delay</code>             </td><td> How long a switch must stay down (or up) to be considered a real press (or release), and not an accidental bounce.                                                                                                                                                         </td><td> Required                                      </td><td> Milliseconds                  </td></tr>
 </tbody></table>
 <a class="header" href="print.html#examples-of-timing-options" id="examples-of-timing-options"><h3>Examples of timing options</h3></a>
 <p>This timing diagram shows a few examples of switch-pressing scenarios, to illustrate the meanings of the different delay options. Assume that pressing one switch sends <code>p</code>, pressing another sends <code>m</code>, and pressing them both at once sends <code>z</code>.</p>
 <pre><code>keys    |
 sent:   | timer name:     states of switches and timers over time:
-________|________________________________________________________________
-        |                 |-m----|
-   m    |
-        | debounce_delay  &lt;...&gt;
-________|________________________________________________________________
-        |                 |m|
- (none) |
-        | debounce_delay  &lt;...&gt;
 ________|________________________________________________________________
         |                 |-m----------|
         |                         |-p---|

@@ -69,7 +69,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="getting_started/README.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="getting_started/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li><a href="getting_started/tutor.html" class="active"><strong aria-hidden="true">1.2.</strong> Typing Tutor</a></li><li><a href="getting_started/firmware.html"><strong aria-hidden="true">1.3.</strong> Firmware</a></li></ol></li><li><a href="config/README.html"><strong aria-hidden="true">2.</strong> Configuration</a></li><li><ol class="section"><li><a href="config/terminology.html"><strong aria-hidden="true">2.1.</strong> Terminology</a></li><li><a href="config/mappings/README.html"><strong aria-hidden="true">2.2.</strong> Mappings</a></li><li><ol class="section"><li><a href="config/mappings/plain.html"><strong aria-hidden="true">2.2.1.</strong> Plain</a></li><li><a href="config/mappings/word.html"><strong aria-hidden="true">2.2.2.</strong> Word</a></li><li><a href="config/mappings/macro.html"><strong aria-hidden="true">2.2.3.</strong> Macro</a></li><li><a href="config/mappings/command.html"><strong aria-hidden="true">2.2.4.</strong> Command</a></li></ol></li><li><a href="config/kmap.html"><strong aria-hidden="true">2.3.</strong> Kmap file format</a></li><li><a href="config/modes.html"><strong aria-hidden="true">2.4.</strong> Modes</a></li><li><a href="config/options.html"><strong aria-hidden="true">2.5.</strong> Options</a></li><li><a href="config/cheatsheet.html"><strong aria-hidden="true">2.6.</strong> Cheatsheet</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="getting_started/README.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="getting_started/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li><a href="getting_started/tutor.html" class="active"><strong aria-hidden="true">1.2.</strong> Typing Tutor</a></li><li><a href="getting_started/firmware.html"><strong aria-hidden="true">1.3.</strong> Firmware</a></li></ol></li><li><a href="config/README.html"><strong aria-hidden="true">2.</strong> Configuration</a></li><li><ol class="section"><li><a href="config/terminology.html"><strong aria-hidden="true">2.1.</strong> Terminology</a></li><li><a href="config/mappings/README.html"><strong aria-hidden="true">2.2.</strong> Mappings</a></li><li><ol class="section"><li><a href="config/mappings/plain.html"><strong aria-hidden="true">2.2.1.</strong> Plain</a></li><li><a href="config/mappings/word.html"><strong aria-hidden="true">2.2.2.</strong> Word</a></li><li><a href="config/mappings/snippet.html"><strong aria-hidden="true">2.2.3.</strong> Snippet</a></li><li><a href="config/mappings/macro.html"><strong aria-hidden="true">2.2.4.</strong> Macro</a></li><li><a href="config/mappings/command.html"><strong aria-hidden="true">2.2.5.</strong> Command</a></li></ol></li><li><a href="config/kmap.html"><strong aria-hidden="true">2.3.</strong> Kmap file format</a></li><li><a href="config/modes.html"><strong aria-hidden="true">2.4.</strong> Modes</a></li><li><a href="config/options.html"><strong aria-hidden="true">2.5.</strong> Options</a></li><li><a href="config/cheatsheet.html"><strong aria-hidden="true">2.6.</strong> Cheatsheet</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -134,9 +134,11 @@
                 <div id="content" class="content">
                     <main>
                         <a class="header" href="getting_started/tutor.html#typing-tutor" id="typing-tutor"><h1>Typing Tutor</h1></a>
-<p>The typing tutor teaches you the layout of the keyboard. It gives you a line of text to copy, and guides you with a hint showing how to type the next letter.</p>
-<p><img src="assets/single.png" width="500" /></p>
+<p>The typing tutor teaches you the layout of the keyboard. It gives you a line of text to copy and guides you with a hint showing how to type the next letter.</p>
+<p><img src="assets/quickbrownfox.png" width="500" /></p>
 <p>As you learn each letter, the tutor will stop showing you hints for that letter. If you mis-type a letter, the hint for the correct letter will reappear in blue, and the location of the incorrect letter you <em>actually</em> pressed will appear in red.</p>
+<p>The tutor also lets you practice chording whole words. It can present random words from the dictionary and give you a hint showing which switches make up each word's chord.</p>
+<p><img src="assets/random_words.jpeg" width="500" /></p>
 <a class="header" href="getting_started/tutor.html#running-the-tutor" id="running-the-tutor"><h2>Running the tutor</h2></a>
 <p>From the <code>pipit-keyboard</code> directory, enter:</p>
 <pre><code>$ cargo run -- -t
@@ -144,22 +146,25 @@
 <p>This will start the tutor using the default <code>settings/settings.yaml</code> file. To use a different file instead, specify it at the end:</p>
 <pre><code>$ cargo run -- -t settings/settings_evan.yaml
 </code></pre>
-<p>The tutor will open to a menu. You can use arrow keys to navigate between items in a menu or buttons in a dialog box, and <code>enter</code> to select one. You <em>might</em> be able to click on menu items and buttons as well, but this feature may not be supported by your terminal.</p>
+<p>The tutor will open to a menu.
+You can use arrow keys to navigate between items in a menu or buttons in a dialog box, and <code>enter</code> to select one.
+You <em>might</em> be able to click on menu items and buttons as well, but this feature is not supported by all terminal emulators.</p>
 <p>You can quit the tutor at any time by typing <code>ctrl-c</code>, or by selecting <code>Quit</code> in the main menu.</p>
 <a class="header" href="getting_started/tutor.html#options" id="options"><h2>Options</h2></a>
 <p>These options are available in the <code>Options</code> menu. All changes will be remembered next time you start the tutor.</p>
 <a class="header" href="getting_started/tutor.html#mode" id="mode"><h3>Mode</h3></a>
 <p>By default, the tutor will assume your keyboard is in <code>default_mode</code> and use that layout to decide where to place the hints. If you want to practice a different <a href="config/modes.html">mode</a>, you can press <code>enter</code> to show a list of all the modes found in the settings file, and then select the mode you want to use.</p>
-<a class="header" href="getting_started/tutor.html#hint-difficulty" id="hint-difficulty"><h3>Hint Difficulty</h3></a>
+<a class="header" href="getting_started/tutor.html#hint-difficulty" id="hint-difficulty"><h3>Hint difficulty</h3></a>
 <p>This controls how quickly the tutor will stop showing you hints for letters you've learned. Use the left and right arrows to move the slider. Left is easier and right is more difficult. If the slider is all the way to the right, the tutor will only show you a hint once, the first time the letter appears.</p>
-<a class="header" href="getting_started/tutor.html#allow-mistakes" id="allow-mistakes"><h3>Allow Mistakes</h3></a>
+<a class="header" href="getting_started/tutor.html#show-persistent-hints-for-the-lessons-new-letters" id="show-persistent-hints-for-the-lessons-new-letters"><h3>Show persistent hints for the lesson's new letters</h3></a>
+<p>If selected, always show hints for the letters that are being newly introduced in this lesson, regardless of the hint difficulty setting.</p>
+<a class="header" href="getting_started/tutor.html#allow-mistakes" id="allow-mistakes"><h3>Allow mistakes</h3></a>
 <p>By default, the tutor won't let you continue after typing a wrong letter. The wrong letter won't appear on the screen, and the cursor won't move until you try again and type the correct letter. This is helpful when you're first learning the layout, but it can become frustrating when you're typing quickly or practicing chording whole words. Turning on the <code>Allow Mistakes</code> option means that incorrect letters will appear (in red) and you can continue typing past them. After a mistake, the tutor will use a yellow hint to show you where <code>backspace</code> is, in case you want to correct your mistake.</p>
 <!-- ## Troubleshooting -->
-<!-- The tutor reads the settings file to determine where to place the hints for each letter. If you've changed the settings without loading them onto the keyboard, then the tutor's hints might not match the actual layout of your keyboard. -->
 <!--    cargo run -- -t 2>tutorlog.txt; cat tutorlog.txt -->
 <hr />
 <a class="header" href="getting_started/tutor.html#note" id="note"><h1>Note:</h1></a>
-<p>The tutor has no way to know which physical switches you're actually pressing on the keyboard. All it knows are which letters have been typed. If you mash an unused combination of many switches that doesn't actually type anything, the tutor won't display any red hints. If you accidentally chord a whole word, it will only display a red hint for the last letter in that word.</p>
+<p>The tutor has no way of knowing which physical switches you're actually pressing on the keyboard. It only knows which letters the computer received. If you mash an unused combination of many switches that doesn't actually type anything, the tutor won't display any red hints. If you accidentally chord a whole word, it will only display a red hint for the last letter in that word.</p>
 <p>Similarly, the tutor can't know the true layout of your keyboard, it can only assume the layout matches the settings file you gave it. If you update the settings file without re-loading the new keyboard firmware, or you switch the keyboard's mode without switching to the same mode in the tutor's options menu, then the hints will be incorrect.</p>
 <hr />
 

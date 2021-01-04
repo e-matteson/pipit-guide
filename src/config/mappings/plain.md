@@ -8,7 +8,9 @@ Modifiers like `ctrl` and `shift`, however, are in a separate group - they're ca
 
 You should never need to change the sequences for `plain_key` mappings. They're already defined in `settings.yaml`, in terms of the all-caps key names used internally by the keyboard firmware (like `KEY_A`). 
 
-You can edit the chords in a `.kmap` file if you want to re-arrange a mode's layout, or create a new mode. Note that if the mode uses words, changing `plain_key` chords will also affect the chords for `word` mappings. See the [word](#word) section for more details.
+You can edit the chords in a `.kmap` file if you want to re-arrange a mode's layout or create a new mode. 
+Note that if the mode uses words, changing `plain_key` chords will also affect the chords for `word` mappings. 
+See the [word](#word) section for more details.
 
 
 <!-- TODO don't overlap key and mod chord definitions -->

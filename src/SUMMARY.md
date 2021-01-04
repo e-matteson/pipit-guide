@@ -10,6 +10,7 @@
   - [Mappings](./config/mappings/README.md)
     - [Plain](./config/mappings/plain.md)
     - [Word](./config/mappings/word.md)
+    - [Snippet](./config/mappings/snippet.md)
     - [Macro](./config/mappings/macro.md)
     - [Command](./config/mappings/command.md)
   - [Kmap file format](./config/kmap.md)

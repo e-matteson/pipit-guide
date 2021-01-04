@@ -6,48 +6,11 @@
 - `macro` chords are not automatically generated - you pick them yourself, and write them in a `.kmap` file.
 - `macro` chords cannot be modified by any kind of modifier. If you press a modifer at the same time, the chord will no longer be recognized as a `macro`.
 
-There are two different ways of writing a `macro's` key sequence in `settings.yaml`, described below.
 
-## Simple macro definitions
-
-The first method is to simply write out the text as you want it to appear:
-
-```
-  macro_email: "me@example.com"
-
-  macro_hash_bang: "#!/bin/bash"
-```
-
-There are a few special symbols that can appear in the text and have the following meanings:
-
-| symbol | key               | unicode |
-|--------|-------------------|---------|
-| `\n`   | `key_enter`       |         |
-| `\t`   | `key_tab`         |         |
-| `\"`   | `key_doublequote` |         |
-| `\\`   | `key_backslash`   |         |
-| `←`    | `key_left`        | U+2190  |
-| `↑`    | `key_up`          | U+2191  |
-| `→`    | `key_right`       | U+2192  |
-| `↓`    | `key_down`        | U+2193  |
-| `◀`    | `key_home`        | U+25C0  |
-| `▶`    | `key_end`         | U+25B6  |
-
-
-Here are some examples of `macro` definitions that use special symbols:
-
-```
-  macro_vim_save: ":w\n"
-  macro_in_paren: "()←"
-  macro_in_doublequote: "\"\"←"
-  macro_if_c: "if(){\n}↑▶←←"
-
-```
-
-## Advanced macro definitions
+## Macro definitions
  
-If you want a `macro` sequence to include modifiers like `ctrl` or other non-printing keys like 
-`escape`, you'll need to use a second method, where you specify each keypress separately.
+A `macro` sequence is defined as a list of keypresses. 
+Each keypress is on a separate line and includes a `key` and/or a list of modifiers.
 
 ```
   macro_save_as:
@@ -68,7 +31,7 @@ If you want a `macro` sequence to include modifiers like `ctrl` or other non-pri
     - {key: "KEY_E", mods: ["MODIFIERKEY_SHIFT"]}
 ```
 
-Each keypress is on a separate line, in curly brackets, and includes a `key`, a `mod` list, or both. The `mod` list can contain the following names:
+The `mods` list can contain the following names:
 
 | mods              |                                                           |
 |-------------------|-----------------------------------------------------------|
@@ -77,7 +40,7 @@ Each keypress is on a separate line, in curly brackets, and includes a `key`, a 
 | MODIFIERKEY_ALT   |                                                           |
 | MODIFIERKEY_GUI   | A.K.A. windows key (❖), apple command key (⌘), or `super` |
 
-and `key` can be any of the following names:
+The `key` can be any of the following names:
 
  |                     |                    |                     |                 |
  |---------------------|--------------------|---------------------|-----------------|
